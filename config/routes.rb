@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :beers, only: :show
+  resources :favourites, only: :index
+
+  get '/test', to: "pages#test"
 end
