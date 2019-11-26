@@ -1,10 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :test]
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
-  end
-
-  def test
-    render template: "beers/show"
   end
 end
