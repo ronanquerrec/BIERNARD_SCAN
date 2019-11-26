@@ -1,12 +1,12 @@
 .beer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 40px;
+  grid-gap: 37px;
 }
 
 .beer-grid .row {
   box-shadow: 2px 2px 10px rgba(78, 74, 74, 0.2);
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .beer-grid .row p {
@@ -14,12 +14,14 @@
 }
 
 .beer-card img {
-  height: 170px;
-  width: 140px;
+  height: 200px;
+  width: 170px;
+  border-radius: 4px;
 }
 
 .beer-card h5, p {
-  padding-top: 3px;
+  padding-top: 7px;
   padding-left: 4px;
-  line-height: 1;
+  line-height: 0.5;
+  font-size: 14px;
 }
