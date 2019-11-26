@@ -1,0 +1,9 @@
+i.fa-heart {
+  color: $gray;
+  opacity: 0.4;
+
+  &.fas {
+    color: $yellow;
+    opacity: 1;
+  }
+}

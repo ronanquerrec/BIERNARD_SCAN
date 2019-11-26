@@ -1,12 +1,14 @@
-<div class="d-flex justify-content-between align-items-center">
+<div class="top-navbar">
   <i class="fas fa-arrow-left"></i>
   <h3>Boont Amber Ale</h3>
-  <i class="far fa-heart"></i>
-  <!-- <i class="fas fa-heart"></i> -->
+  <!-- <i class="far fa-heart"></i> -->
+  <i class="fas fa-heart"></i>
 </div>
-<div>
-  <%= image_tag "https://media.biernard.com/bieres/temp/1996-13880-v4_product_img.jpg" %>
-  <div>
+<div class="beer-overview row">
+  <div class="col-3 d-flex justify-content-center align-items-center">
+    <%= image_tag "https://media.biernard.com/bieres/temp/1996-13880-v4_product_img.jpg" , class: "beer-cover"%>
+  </div>
+  <div class="beer-main-infos col-9">
     <h1>Boont Amber Ale</h1>
     <p><strong>Brasserie:</strong> Anderson Valley Brewing Co.</p>
     <p><strong>Style:</strong> Amber Ale</p>
@@ -21,6 +23,7 @@
   <h3>Saveurs</h3>
   <p><span>Malt</span><span>Caramel</span></p>
 </div>
+
 
 
 
