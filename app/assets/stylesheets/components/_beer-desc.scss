@@ -1,0 +1,13 @@
+.beer-overview {
+  & .beer-cover {
+    height: auto;
+    max-width: 100%;
+
+  }
+}
+
+.beer-main-infos {
+  h1 {
+    font-size: 32px;
+  }
+}
