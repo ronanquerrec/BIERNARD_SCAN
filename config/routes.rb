@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :favourites, only: :index
 
   get '/test', to: "pages#test"
+  resources :favourites, only: :index
+
+  get '/test', to: "pages#test"
 end
