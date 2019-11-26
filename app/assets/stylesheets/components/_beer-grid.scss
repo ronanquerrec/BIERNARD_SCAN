@@ -13,6 +13,12 @@
   color: #848484
 }
 
+.beer-card {
+  width: 170px;
+  background-color: #F9FBFF;
+  border-bottom-right-radius: 80px;
+}
+
 .beer-card img {
   height: 200px;
   width: 170px;
@@ -20,8 +26,16 @@
 }
 
 .beer-card h5, p {
-  padding-top: 7px;
   padding-left: 4px;
-  line-height: 0.5;
-  font-size: 14px;
+  line-height: 1;
+  font-size: 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  max-width: 250px;
+}
+
+.beer-card h5{
+  padding-top: 13px;
 }
