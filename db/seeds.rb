@@ -1,49 +1,63 @@
 puts 'Cleaning database...'
-Beer.destroy_all
-Flavour.destroy_all
 BeerFlavour.destroy_all
+Favourite.destroy_all
+Flavour.destroy_all
 User.destroy_all
-
-puts "creating flavor tags..."
-
-malt = Flavour.create!(name: 'malt')
-caramel = Flavour.create!(name: 'caramel')
-
-
-puts 'Creating beers...'
-beer = Beer.create!(
-  name: "Boont Amber Ale",
-  description: "La bière Boont Amber Ale de la brasserie Anderson Valley Brewing Co., Etats-Unis.",
-  fizzing: 51,
-  bitterness: 40,
-  sweetness: 40,
-  alcohol_percentage: 5.8,
-  brewery: "Anderson Valley Brewing Co.",
-  country: "Etats-Unis",
-  url_image: "https://media.biernard.com/bieres/temp/1996-13880-v4_product_img.jpg",
-  style: "Amber Ale",
-  strength: 10,
-  sourness: 6.7,
-  colour: "Amber"
-)
+Beer.destroy_all
 
 puts 'Creating users...'
-User.create!(
+user = User.create!(
   email: 'jean@beer.com',
   password: "123456"
 )
 
-BeerFlavour.create!(
-  beer: beer,
-  flavour: malt
-)
+require 'json'
 
-BeerFlavour.create!(
-  beer: beer,
-  flavour: caramel
-)
+filepath = "#{Rails.root}/db/beers.json"
+
+serialized_beers = File.read(filepath)
+
+beers = JSON.parse(serialized_beers)
+
+puts 'Creating beers...'
+puts "creating flavor tags..."
+beers["beers"].each do |beer|
+
+  beer_record = Beer.create!(
+    name: beer["name"],
+    description: beer["description"],
+    fizzing: beer["effervescentAvg"],
+    bitterness: beer["bitterness"],
+    sweetness: beer["sweetness"],
+    alcohol_percentage: beer["alcohol_degree"],
+    brewery: beer["brewer"],
+    country: beer["country"],
+    url_image: beer["url_image"],
+    style: beer["style"],
+    strength: beer["power"],
+    sourness: beer["acidity"],
+    colour: beer["color"]
+  )
+  # array of strings
+  beer["flavors_tags"].each do |beer_flavor_tag|
+
+    flavour = Flavour.find_or_create_by!(name: beer_flavor_tag)
+    BeerFlavour.create!(
+      beer: beer_record,
+      flavour: flavour
+    )
+  end
+
+end
+
+puts "Creating favorites beers list..."
+10.times do
+  Favourite.create!(
+    user: user,
+    beer: Beer.all.sample
+    )
+end
+
 
 puts 'Finished!'
-
-
 
