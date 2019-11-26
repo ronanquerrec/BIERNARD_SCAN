@@ -1,27 +1,34 @@
 <div class="top-navbar">
-  <i class="fas fa-arrow-left"></i>
+  <%= link_to "#" do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
   <h3>Boont Amber Ale</h3>
   <!-- <i class="far fa-heart"></i> -->
   <i class="fas fa-heart"></i>
+  <%= request.referrer %>
 </div>
 <div class="beer-overview row">
-  <div class="col-3 d-flex justify-content-center align-items-center">
-    <%= image_tag "https://media.biernard.com/bieres/temp/1996-13880-v4_product_img.jpg" , class: "beer-cover"%>
-  </div>
-  <div class="beer-main-infos col-9">
+  <div class="beer-cover col-4 d-flex justify-content-center align-items-center" style="background-image: url(https://media.biernard.com/bieres/temp/1996-13880-v4_product_img.jpg);"></div>
+  <div class="beer-main-infos col-8">
     <h1>Boont Amber Ale</h1>
-    <p><strong>Brasserie:</strong> Anderson Valley Brewing Co.</p>
-    <p><strong>Style:</strong> Amber Ale</p>
-    <p><strong>Pays:</strong> Etats-Unis</p>
-    <p><strong>Alcool:</strong> 10°</p>
-    <p><strong>Couleur:</strong> Amber</p>
+    <p><strong>Brasserie:</strong> <span class="desc-light">Anderson Valley Brewing Co.</span></p>
+    <p><strong>Style:</strong> <span class="desc-light">Amber Ale</span></p>
+    <p><strong>Pays:</strong> <span class="desc-light">Etats-Unis</span></p>
+    <p><strong>Alcool:</strong> <span class="desc-light">10°</span></p>
+    <p><strong>Couleur:</strong> <span class="desc-light">Amber</span></p>
   </div>
 </div>
-<div>
+<div class="beer-details">
   <h3>Description</h3>
   <p>La bière Boont Amber Ale de la brasserie Anderson Valley Brewing Co., Etats-Unis.</p>
   <h3>Saveurs</h3>
-  <p><span>Malt</span><span>Caramel</span></p>
+  <p class="tags"><span class="tag">Malt</span><span class="tag">Caramel</span><span class="tag">Malt</span><span class="tag">Caramel</span><span class="tag">Malt</span><span class="tag">Caramel</span></p>
+  <h3>Caractéristiques</h3>
+  <div class="d-flex justify-content-between mb-2"><span>Sucrosité</span><div class="bar-rating-container"><div class="filling" style="width:50%"></div></div></div>
+  <div class="d-flex justify-content-between mb-2"><span>Amertume</span><div class="bar-rating-container"><div class="filling" style="width:40%"></div></div></div>
+  <div class="d-flex justify-content-between mb-2"><span>Effervescence</span><div class="bar-rating-container"><div class="filling" style="width:50%"></div></div></div>
+  <div class="d-flex justify-content-between mb-2"><span>Puissance</span><div class="bar-rating-container"><div class="filling" style="width:10%"></div></div></div>
+  <div class="d-flex justify-content-between mb-2"><span>Acidité</span><div class="bar-rating-container"><div class="filling" style="width:10%"></div></div></div>
 </div>
 
 
