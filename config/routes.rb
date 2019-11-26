@@ -3,6 +3,4 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :beers, only: :show
-
-  get '/test', to: "pages#test"
 end
