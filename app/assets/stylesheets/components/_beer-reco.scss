@@ -1,11 +1,13 @@
 .recommendation-row {
   display: flex;
-  justify-content: space-between;
+  overflow-x: scroll;
+  &::-webkit-scrollbar { width: 0 !important }
 }
 
-.recommendation-card,
-.recommendation-card img {
-  height: 200px;
+.recommendation-card, {
+  margin: 6px;
+  padding-top: 13px;
+  height: 267.8px;
   width: 170px;
   background-color: #F9FBFF;
   border: solid 0.4px #C5D2F1;
@@ -13,7 +15,8 @@
 }
 
 .recommendation-card img {
-  padding: 5px;
+  height: 200px;
+  width:170px;
 }
 
 .recommendation-card h5,
@@ -28,6 +31,16 @@
   max-width: 250px;
 }
 
+.recommendation-card h5 {
+  padding-top: 13px;
+}
 .recommendation-card p {
   color: #848484
+}
+
+.carousel,
+.carousel img {
+  height: 200px;
+  width: 170px;
+  border-radius: 7px;
 }
