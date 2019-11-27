@@ -22,10 +22,11 @@ i.fas.fa-heart.white {
     opacity: 1;
 }
 
-.item{
+a.item{
   display: flex;
   align-items: center;
   flex-direction: column;
+  color: white;
   i {
     font-size: 28px;
     margin-bottom: 5px;
@@ -48,5 +49,8 @@ i.fas.fa-heart.white {
     i {
       font-size: 40px;
     }
+  }
+  &:hover {
+    text-decoration: none;
   }
 }

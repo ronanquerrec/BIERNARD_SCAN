@@ -1,0 +1,7 @@
+function toggleHeart() {
+  const simpleForm = document.querySelector('.simple_form')
+  console.log(simpleForm.outerHTML);
+  simpleForm.outerHTML = '<%= j render "shared/heart_form", beer: @beer %>';
+};
+
+toggleHeart();

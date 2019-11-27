@@ -7,3 +7,18 @@ i.fa-heart {
     opacity: 1;
   }
 }
+
+.simple_form.new_favourite,
+.simple_form.edit_favourite {
+  div {
+    margin: 0;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+  button:focus {
+    outline: none;
+  }
+}
