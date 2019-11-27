@@ -16,12 +16,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'google-cloud-vision'
-gem 'sunspot_rails'
 gem "cloudinary"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'sunspot_solr'
 end
 
 group :development, :test do
