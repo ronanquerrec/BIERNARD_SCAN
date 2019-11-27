@@ -1,0 +1,15 @@
+<div class="container">
+  <h2 class="pt-2">Découvrir</h2>
+  <h5>Parce que vous avez aimé Les Bons Voeux de la Brasserie Dupont, voici d'autres blondes :</h5>
+  <div class="recommendation-row pt-3">
+    <% @gold_beers.each do |beer| %>
+      <div class="recommendation-card">
+        <%= link_to beer_path(beer) do %>
+          <%= image_tag beer.url_image %>
+          <h5><%= beer.name %></h5>
+          <p><%= beer.brewery %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
