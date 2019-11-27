@@ -1,13 +1,9 @@
 <h1>Prenez une photo</h1>
 
-<h2><%= link_to "Test appel action Scan/create", scans_path, method: :post  %></h2>
-<br>
-<br>
-  <% if @scan_results %>
-    <% @scan_results.each do |result| %>
-  <ul>
-      <li><%= result%></li>
-  </ul>
 
-    <% end %>
+<%= form_with(url: scans_path, method: "POST", local: true, multipart: true) do %>
+  <%= label_tag(:image, "Image de bière") %>
+  <%= file_field_tag(:image) %>
+  <%= submit_tag("Scanner") %>
 <% end %>
+

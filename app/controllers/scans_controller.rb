@@ -4,12 +4,20 @@ class ScansController < ApplicationController
   end
 
   def create
+    uploaded_file = params[:image]
+    tmp_file = Tempfile.new(uploaded_file.original_filename)
+    File.open(tmp_file.path, 'wb') do |file|
+      file.write(uploaded_file.read)
+    end
+    res = Cloudinary::Uploader.upload(tmp_file.path)
+    uploaded_url = res["url"]
+
     @scan_results = []
 
     image_annotator = Google::Cloud::Vision::ImageAnnotator.new
 
     response = image_annotator.text_detection(
-      image: "https://media.biernard.com/bieres/temp/26538-42867-v4_product_img.jpg",
+      image: uploaded_url,
       max_results: 1 # optional, defaults to 10
     )
 

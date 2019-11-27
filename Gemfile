@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'google-cloud-vision'
 gem 'sunspot_rails'
+gem "cloudinary"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
