@@ -1,6 +1,7 @@
 .recommendation-row {
   display: flex;
   overflow-x: scroll;
+  overflow-y: hidden;
   &::-webkit-scrollbar { width: 0 !important }
 }
 
@@ -23,7 +24,6 @@
 .recommendation-card p {
   padding-left: 4px;
   line-height: 1;
-  font-size: 12px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -32,7 +32,7 @@
 }
 
 .recommendation-card h5 {
-  padding-top: 13px;
+  padding-top: 3px;
 }
 .recommendation-card p {
   color: #848484
@@ -43,4 +43,8 @@
   height: 200px;
   width: 170px;
   border-radius: 7px;
+}
+
+.reco-title {
+  font-size: 18px;
 }
