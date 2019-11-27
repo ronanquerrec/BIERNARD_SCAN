@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :beers, only: :show
   resources :favourites, only: [:index, :create, :destroy]
+  resources :recommendations, only: [:index]
   resources :scans, only: [:new, :create]
 end
