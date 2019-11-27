@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :beers, only: :show
   resources :favourites, only: :index
 
+  resources :scans, only: [:new, :create]
+
   get '/test', to: "pages#test"
   resources :favourites, only: :index
 
