@@ -1,10 +1,13 @@
 <h1>Prenez une photo</h1>
 
+<video id="video"></video>
+<button id="startbutton">Prendre une photo</button>
+<canvas id="canvas" class="d-none"></canvas>
 
-<%= form_with(url: scans_path, method: "POST", local: true, multipart: true) do %>
-  <%= label_tag(:image, "Image de bière") %>
-  <%= file_field_tag(:image) %>
-  <%= submit_tag("Scanner") %>
+
+<%= form_with(url: scans_path, method: "POST", local: true, multipart: true, id: 'form-scan') do %>
+
+  <%= hidden_field_tag(:image) %>
 <% end %>
 
 <div>
@@ -16,5 +19,3 @@
     <% end %>
   <% end %>
 </div>
-
-
