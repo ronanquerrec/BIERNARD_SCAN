@@ -39,3 +39,10 @@ yarn-debug.log*
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+
+#search Solr ignored files
+solr/data
+solr/test/data
+solr/development/data
+solr/default/data
+solr/pids
