@@ -1,2 +1,3 @@
 class BeerFlavoursController < ApplicationController
+
 end

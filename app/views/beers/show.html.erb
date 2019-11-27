@@ -3,8 +3,7 @@
     <i class="fas fa-arrow-left"></i>
   <% end %>
   <h3><%= @beer.name %></h3>
-  <!-- <i class="far fa-heart"></i> -->
-  <i class="fas fa-heart"></i>
+  <%= render "shared/heart_form", beer: @beer %>
 </div>
 <div class="beer-overview row">
   <div class="beer-cover col-4 d-flex justify-content-center align-items-center" style="background-image: url(https://media.biernard.com/bieres/temp/1996-13880-v4_product_img.jpg);"></div>
