@@ -1,17 +1,17 @@
 <div class="bottom-nav fixed-bottom">
   <ul class="list-items">
-    <div class="item">
+    <%= link_to favourites_path ,class: "item" do %>
       <i class="fas fa-heart white"></i>
       <li class="li-item">Mes bières</li>
-    </div>
-    <div class="item scan">
+    <% end %>
+    <%= link_to new_scan_path, class: "item scan" do %>
       <div>
         <i class="fas fa-camera"></i>
       </div>
-    </div>
-    <div class="item">
+    <% end %>
+    <%= link_to favourites_path ,class: "item" do %>
       <i class="fas fa-compass"></i>
       <li class="li-item">Découvrir</li>
-    </div>
+    <% end %>
   </ul>
 </div>

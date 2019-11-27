@@ -2,13 +2,13 @@
   <h2 class="pt-2">Ma cave</h2>
   <div class="row justify-content-center">
     <div class="beer-grid">
-      <% @favourites.each do |favourite| %>
+      <% @beers.each do |beer| %>
         <div class="row">
             <div class="beer-card pt-2">
-              <%= link_to beer_path(favourite.beer) do %>
-                <%= image_tag(favourite.beer.url_image, alt: "Beer picture") %>
-              <h5><%= favourite.beer.name %></h5>
-              <p><%= favourite.beer.brewery %></p>
+              <%= link_to beer_path(beer) do %>
+              <%= image_tag beer.url_image %>
+                <h5><%= beer.name %></h5>
+                <p><%= beer.brewery %></p>
               <% end %>
             </div>
           </div>
