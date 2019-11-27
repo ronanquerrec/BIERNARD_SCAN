@@ -1,0 +1,15 @@
+<% if user_signed_in? && current_user.beers.include?(beer) %>
+  <%= simple_form_for @favourite, method: :delete, remote: true do |f| %>
+    <%= f.input :beer_id, input_html: {value: beer.id}, as: :hidden %>
+    <%= button_tag(type: 'submit') do %>
+      <i class="fas fa-heart"></i>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= simple_form_for @favourite, method: :post, remote: true do |f| %>
+    <%= f.input :beer_id, input_html: {value: beer.id}, as: :hidden %>
+    <%= button_tag(type: 'submit') do %>
+      <i class="far fa-heart"></i>
+    <% end %>
+  <% end %>
+<% end %>
