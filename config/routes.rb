@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :beers, only: :show
-  resources :favourites, only: [:create, :destroy]
+  resources :favourites, only: [:index, :create, :destroy]
+  resources :scans, only: [:new, :create]
 end

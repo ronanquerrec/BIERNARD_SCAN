@@ -1,6 +1,9 @@
 class FavouritesController < ApplicationController
   before_action :set_beer
 
+  def index
+    @favourites = Favourite.all
+
   def create
     @favourite = Favourite.create(user: current_user, beer: @beer)
 
