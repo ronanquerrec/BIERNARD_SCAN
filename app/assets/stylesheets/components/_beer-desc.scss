@@ -32,9 +32,10 @@
   }
 
   .tags {
-    margin-top: 15px;
-    // overflow-x: scroll;
-    // &::-webkit-scrollbar { width: 0 !important }
+    display: flex;
+    margin-top: 10px;
+    overflow-x: scroll;
+    &::-webkit-scrollbar { width: 0 !important }
   }
 
   .tag {
