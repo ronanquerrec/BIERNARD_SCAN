@@ -1,7 +1,5 @@
-<h1>Prenez une photo</h1>
 
 <video id="video"></video>
-<button id="startbutton">Prendre une photo</button>
 <canvas id="canvas" class="d-none"></canvas>
 
 
@@ -10,3 +8,7 @@
   <%= hidden_field_tag(:image) %>
 <% end %>
 
+<div class="d-flex justify-content-around align-items-center navbar-scan">
+  <div><i class="fas fa-times"></i></div>
+  <button id="startbutton"><i class="fas fa-camera"></i></button>
+</div>

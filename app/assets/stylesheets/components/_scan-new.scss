@@ -1,0 +1,37 @@
+#video {
+  width: 100vw;
+  height: calc(100vh - 132px);
+}
+
+#startbutton {
+  // background:  ;
+  color: white;
+  // width: 50px;
+  // height:50px;
+  // border-radius: 50%;
+  i {
+    font-size: 36px;
+  }
+}
+
+button#startbutton {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-scan {
+  width: 100%;
+  height:132px;
+  background: linear-gradient(0deg, #F7AB59 51.56%, #F7CB59 100%);
+  border: solid .5px #CED5E3;
+  position: fixed;
+  border: none;
+  i {
+    font-size: 40px;
+    color: white;
+  }
+  div {
+    width: 40px;
+    height: 40px;
+  }
+}

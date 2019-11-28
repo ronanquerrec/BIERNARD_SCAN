@@ -5,7 +5,7 @@ const showVideo = () =>  {
       canvas       = document.querySelector('#canvas'),
       image        = document.querySelector('#image'),
       startbutton  = document.querySelector('#startbutton'),
-      width = 200;
+      width = 360;
   let height = 0;
 
   navigator.getMedia = ( navigator.getUserMedia ||
