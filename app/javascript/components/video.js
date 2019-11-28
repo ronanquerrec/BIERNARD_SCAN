@@ -14,10 +14,8 @@ const showVideo = () =>  {
                          navigator.msGetUserMedia);
 
   navigator.getMedia(
-    {
-      video: true,
-      audio: false
-    },
+{ audio: false, video: { facingMode: { exact: "environment" } } }
+,
     (stream) => {
       if (navigator.mozGetUserMedia) {
 
