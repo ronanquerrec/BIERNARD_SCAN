@@ -57,4 +57,17 @@
       <div class="filling" style="width:<%= @beer.sourness.fdiv(10).ceil * 10 %>%"></div>
     </div>
   </div>
+  <h2 class="pt-2">Découvrir</h2>
+  <h5 class="reco-title">D'autres bières dans le même style :</h5>
+  <div class="recommendation-row">
+    <% @show_reco.each do |beer| %>
+      <div class="recommendation-card">
+          <%= link_to beer_path(beer) do %>
+            <%= image_tag beer.url_image %>
+            <h5><%= beer.name %></h5>
+            <p><%= beer.brewery %></p>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
