@@ -10,12 +10,3 @@
   <%= hidden_field_tag(:image) %>
 <% end %>
 
-<div>
-  <% if @scan_results %>
-    <% @scan_results.each do |s| %>
-      <ul>
-        <li><%= s %></li>
-      </ul>
-    <% end %>
-  <% end %>
-</div>
