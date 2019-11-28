@@ -1,13 +1,16 @@
 class RecommendationsController < ApplicationController
   def index
-    @first_reco_beers = Beer.where(favourite_beer_tags == :flavours).first(10)
-    @last_reco_beers = Beer.where(favourite_beer_tags == :flavours).last(10)
+    @first_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[0]).first(10)
+    @second_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[1]).first(10)
+    @third_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[2]).first(10)
   end
+
+  private
 
   def favourite_beer_tags
     tags = []
-    Favourite.all.each do |favourite|
-      tags << favourite.beer.flavours.map { |flavour| flavour.name }
+    current_user.beers.each do |beer|
+      tags << beer.flavours.map { |flavour| flavour.name }
     end
     tags = tags.flatten
     tags.group_by{|i| i.capitalize}.map { |k, v| [k, v.length] }
@@ -16,3 +19,4 @@ class RecommendationsController < ApplicationController
 end
 
 # Beer.where("sweetness > ?", 60).sample(5)
+# favourite_beer_tags == :flavours).first(10

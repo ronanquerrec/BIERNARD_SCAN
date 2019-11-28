@@ -1,6 +1,6 @@
 <div class="container pb-4">
   <h2 class="pt-2">Découvrir</h2>
-  <h5 class="reco-title">Voilà les bières qu'on vous recommande compte tenu de votre Cave :</h5>
+  <h5 class="reco-title">Il semblerait que vous aimez le miel :</h5>
   <div class="recommendation-row">
     <% @first_reco_beers.each do |beer| %>
       <div class="recommendation-card">
@@ -12,8 +12,21 @@
       </div>
     <% end %>
   </div>
+  <h5 class="reco-title">Il nous semble que vous aimez le malt :</h5>
   <div class="recommendation-row">
-    <% @last_reco_beers.each do |beer| %>
+    <% @second_reco_beers.each do |beer| %>
+      <div class="recommendation-card">
+          <%= link_to beer_path(beer) do %>
+            <%= image_tag beer.url_image %>
+            <h5><%= beer.name %></h5>
+            <p><%= beer.brewery %></p>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+  <h5 class="reco-title">Une touche de walut pour finir :</h5>
+  <div class="recommendation-row">
+    <% @third_reco_beers.each do |beer| %>
       <div class="recommendation-card">
           <%= link_to beer_path(beer) do %>
             <%= image_tag beer.url_image %>
