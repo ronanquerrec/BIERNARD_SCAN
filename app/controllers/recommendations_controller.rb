@@ -1,6 +1,7 @@
 class RecommendationsController < ApplicationController
   def index
-    @reco_beers = Beer.where(favourite_beer_tags == :flavours)
+    @first_reco_beers = Beer.where(favourite_beer_tags == :flavours).first(10)
+    @last_reco_beers = Beer.where(favourite_beer_tags == :flavours).last(10)
   end
 
   def favourite_beer_tags
