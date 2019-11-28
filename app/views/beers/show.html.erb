@@ -57,9 +57,8 @@
       <div class="filling" style="width:<%= @beer.sourness.fdiv(10).ceil * 10 %>%"></div>
     </div>
   </div>
-  <h2 class="pt-2">Découvrir</h2>
-  <h5 class="reco-title">D'autres bières dans le même style :</h5>
-  <div class="recommendation-row">
+  <h2 class="pt-2">Vous aimerez aussi</h2>
+  <div class="recommendation-row pb-4">
     <% @show_reco.each do |beer| %>
       <div class="recommendation-card">
           <%= link_to beer_path(beer) do %>

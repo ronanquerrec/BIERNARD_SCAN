@@ -1,16 +1,17 @@
 class RecommendationsController < ApplicationController
   def index
-    @style_reco = Beer.where(style: Favourite.last.beer.style).sample(10)
-    @sweet_beers = Beer.where("sweetness > ?", 60).sample(5)
-    # Base recommendation on most frequent tags
+    @reco_beers = Beer.where(favourite_beer_tags == :flavours)
   end
 
-  # Sort most frequent flavours in favourites
-  def favtag
-    all_tags = []
+  def favourite_beer_tags
+    tags = []
     Favourite.all.each do |favourite|
-      all_tags << favourite.beer.flavours.map { |flavour| flavour.name }
+      tags << favourite.beer.flavours.map { |flavour| flavour.name }
     end
-    all_tags
+    tags = tags.flatten
+    tags.group_by{|i| i.capitalize}.map { |k, v| [k, v.length] }
+    tags.sort_by { |array| array.last }.reverse.first(3)
   end
 end
+
+# Beer.where("sweetness > ?", 60).sample(5)
