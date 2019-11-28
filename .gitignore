@@ -46,4 +46,6 @@ solr/test/data
 solr/development/data
 solr/default/data
 solr/pids
-.env*
+
+config/service-account-file-new.json
+db/beers.json
