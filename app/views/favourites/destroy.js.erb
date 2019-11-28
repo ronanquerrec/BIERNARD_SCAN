@@ -3,4 +3,13 @@ function toggleHeart() {
   simpleForm.outerHTML = '<%= j render "shared/heart_form", beer: @beer %>';
 };
 
+function destroyNotif() {
+  const notifDiv = document.querySelector('.alert-notif');
+  const notifText = document.querySelector('.alert-notif span');
+  notifText.innerText = "Votre bière a été supprimée de la cave !";
+  notifDiv.classList.remove('d-none');
+};
+
+
 toggleHeart();
+destroyNotif();
