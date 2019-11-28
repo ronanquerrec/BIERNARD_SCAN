@@ -1,10 +1,22 @@
 class RecommendationsController < ApplicationController
   def index
-    @style_reco = Beer.where(style: Favourite.last.beer.style).sample(5)
-    @sweet_beers = Beer.where("sweetness > ?", 60).sample(5)
-    # Reco 2
-    # Manage to select all beers among the favourites
-    # Manage to determine which tags are the most frequent among the favourites
-    # Offer last recommendation based on most frequent beer tags
+    @first_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[0]).first(10)
+    @second_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[1]).first(10)
+    @third_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[2]).first(10)
+  end
+
+  private
+
+  def favourite_beer_tags
+    tags = []
+    current_user.beers.each do |beer|
+      tags << beer.flavours.map { |flavour| flavour.name }
+    end
+    tags = tags.flatten
+    tags.group_by{|i| i.capitalize}.map { |k, v| [k, v.length] }
+    tags.sort_by { |array| array.last }.reverse.first(3)
   end
 end
+
+# Beer.where("sweetness > ?", 60).sample(5)
+# favourite_beer_tags == :flavours).first(10
