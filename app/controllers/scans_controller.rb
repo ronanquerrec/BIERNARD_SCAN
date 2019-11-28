@@ -4,12 +4,12 @@ class ScansController < ApplicationController
   end
 
   def create
-    uploaded_file = params[:image]
-    tmp_file = Tempfile.new(uploaded_file.original_filename)
-    File.open(tmp_file.path, 'wb') do |file|
-      file.write(uploaded_file.read)
-    end
-    res = Cloudinary::Uploader.upload(tmp_file.path)
+    # uploaded_file = params[:image]
+    # tmp_file = Tempfile.new(uploaded_file.original_filename)
+    # File.open(tmp_file.path, 'wb') do |file|
+    #   file.write(uploaded_file.read)
+    # end
+    res = Cloudinary::Uploader.upload(params[:image])
     uploaded_url = res["url"]
 
     @scan_results = []
@@ -71,4 +71,5 @@ class ScansController < ApplicationController
          .reverse
          .first
   end
+
 end

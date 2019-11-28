@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :favourites, only: [:index, :create, :destroy]
   resources :recommendations, only: [:index]
   resources :scans, only: [:new, :create]
+
+  get 'pages/test'
+
 end
