@@ -82,8 +82,14 @@ const showVideo = () =>  {
       form.submit();
     }
 
+    const addLoadingScreen = () => {
+      const loadingDiv = document.getElementById('loading');
+      loadingDiv.style.display = 'block';
+    };
+
     startbutton.addEventListener('click', function(ev){
         takepicture();
+        addLoadingScreen();
       ev.preventDefault();
     }, false);
   }
