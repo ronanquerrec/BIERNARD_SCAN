@@ -2,7 +2,7 @@
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  &::-webkit-scrollbar { width: 0 !important }
+  &::-webkit-scrollbar { width: 0 !important };
 }
 
 .recommendation-card, {
@@ -19,6 +19,10 @@
 .recommendation-card img {
   height: 200px;
   width:170px;
+}
+
+.recommendation-card a {
+  text-decoration: none;
 }
 
 .recommendation-card h5,
@@ -48,4 +52,9 @@
 
 .reco-title {
   font-size: 18px;
+}
+
+.link_to {
+  text-decoration: none;
+  display: none;
 }
