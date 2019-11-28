@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'google-cloud-vision'
 gem "cloudinary"
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'web-console', '>= 3.3.0'
