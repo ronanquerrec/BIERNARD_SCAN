@@ -46,3 +46,5 @@ solr/test/data
 solr/development/data
 solr/default/data
 solr/pids
+
+config/service-account-file-new.json
