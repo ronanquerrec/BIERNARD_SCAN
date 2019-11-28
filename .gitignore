@@ -48,3 +48,4 @@ solr/default/data
 solr/pids
 
 config/service-account-file-new.json
+db/beers.json
