@@ -1,3 +1,26 @@
+const fallBackVideo = () => {
+  navigator.getMedia(
+    {
+      audio: false,
+      video: true
+    },
+    (stream) => {
+      if (navigator.mozGetUserMedia) {
+
+        video.mozSrcObject = stream;
+      } else {
+        const vendorURL = window.URL || window.webkitURL;
+        video.srcObject = stream;
+      }
+      video.play();
+    },
+    function(err) {
+      console.log("An error occured! " + err);
+    }
+  );
+
+};
+
 const showVideo = () =>  {
 
   let streaming = false;
@@ -14,8 +37,10 @@ const showVideo = () =>  {
                          navigator.msGetUserMedia);
 
   navigator.getMedia(
-{ audio: false, video: { facingMode: { exact: "environment" } } }
-,
+    {
+      audio: false,
+      video: { facingMode: { exact: "environment" } }
+    },
     (stream) => {
       if (navigator.mozGetUserMedia) {
 
@@ -28,12 +53,15 @@ const showVideo = () =>  {
     },
     function(err) {
       console.log("An error occured! " + err);
+      fallBackVideo();
     }
   );
 
-    video.addEventListener('canplay', function(ev){
+
+
+
+  video.addEventListener('canplay', function(ev){
     if (!streaming) {
-      console.log('test');
       height = video.videoHeight / (video.videoWidth/width);
       video.setAttribute('width', width);
       video.setAttribute('height', height);
