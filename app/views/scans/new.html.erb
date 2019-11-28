@@ -1,13 +1,12 @@
 <h1>Prenez une photo</h1>
 
-<h2><%= link_to "Test appel action Scan/create", scans_path, method: :post  %></h2>
-<br>
-<br>
-  <% if @scan_results %>
-    <% @scan_results.each do |s| %>
-  <ul>
-      <li><%= s %></li>
-  </ul>
+<video id="video"></video>
+<button id="startbutton">Prendre une photo</button>
+<canvas id="canvas" class="d-none"></canvas>
 
-    <% end %>
+
+<%= form_with(url: scans_path, method: "POST", local: true, multipart: true, id: 'form-scan') do %>
+
+  <%= hidden_field_tag(:image) %>
 <% end %>
+
