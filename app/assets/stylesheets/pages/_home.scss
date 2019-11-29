@@ -26,7 +26,7 @@ background: linear-gradient(0deg, $yellow 51.56%, #F7CB59 100%);
   background: linear-gradient(180deg, #F7CB59 0%, $yellow 100%);
   box-shadow: 0 0 20px 20px rgba(30, 30, 30, 0.05);
   display: block;
-  margin-bottom: 180px;
+  // margin-bottom: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +42,7 @@ background: linear-gradient(0deg, $yellow 51.56%, #F7CB59 100%);
   height: 100vh;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20px 20px 0 20px;
+  padding: 20px 20px 0 20px;
 
 }
 
@@ -60,6 +60,21 @@ background: linear-gradient(0deg, $yellow 51.56%, #F7CB59 100%);
     font-weight: bold;
   }
 }
+
+img {
+  width: 240px;
+}
+
+.text-info {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  h3 {
+    color: white;
+    text-align: center;
+  }
+}
+
 // ----
 
 // #container {

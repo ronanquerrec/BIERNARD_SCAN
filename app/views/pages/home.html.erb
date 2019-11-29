@@ -1,28 +1,33 @@
 
 <!-- <#%= image_tag"logo.svg", alt: "alttext", class: "logo" %> -->
-<div class="">
+<div>
   <div class="wrapper-button">
     <div class="d-flex justify-content-between top-buttons">
       <%= link_to favourites_path, class: 'text-center' do%>
         <i class="fas fa-heart white"></i>
-        <p>Mes bières</p>
+        <p>Ma cave</p>
       <% end %>
       <%= link_to favourites_path, class: 'text-center' do%>
         <i class="fas fa-compass"></i>
         <p>Découvrir</p>
       <% end %>
     </div>
-    <%#= link_to "sign out", destroy_user_session_path, method: :delete %>
-    <div class="d-flex justify-content-center">
-      <%= link_to new_scan_path do %>
-      <div class="awesome-button">
-        <i class="fas fa-camera"></i>
+    <div class="d-flex flex-column align-items-center flex-grow-1 justify-content-around">
+      <%= image_tag "Logo-tete-blanche.png", alt: "biernard" %>
+      <%#= link_to "sign out", destroy_user_session_path, method: :delete %>
+      <div class="d-flex justify-content-center">
+        <%= link_to new_scan_path do %>
+        <div class="awesome-button">
+          <i class="fas fa-camera"></i>
+        </div>
+        <% end %>
       </div>
-      <% end %>
+      <div class="text-info">
+        <h3>Scanne tes bières</h3>
+      </div>
     </div>
   </div>
 </div>
-
 
 <!-- <div id="container">
   <div id="liquid">
