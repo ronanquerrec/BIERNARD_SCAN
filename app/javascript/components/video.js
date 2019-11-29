@@ -83,8 +83,8 @@ const showVideo = () =>  {
     }
 
     const addLoadingScreen = () => {
-      const loadingDiv = document.getElementById('loading');
-      loadingDiv.style.display = 'block';
+      const bodyElement = document.querySelector('body');
+      bodyElement.insertAdjacentHTML('afterbegin', '<div id="loading"></div>');
     };
 
     startbutton.addEventListener('click', function(ev){
