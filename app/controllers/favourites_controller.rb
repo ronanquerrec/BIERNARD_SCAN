@@ -2,7 +2,7 @@ class FavouritesController < ApplicationController
   before_action :set_beer, only: [:create, :destroy]
 
   def index
-    @beers = current_user.beers.reverse
+    @beers = current_user.favourites.map { |favourite| favourite.beer }.reverse
   end
 
   def create

@@ -1,3 +1,18 @@
+.reco-title {
+  padding-top: 16px;
+  text-align: center;
+  line-height: 0.4;
+}
+
+.reco-description {
+  text-align: center;
+}
+
+.row-title {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
 .recommendation-row {
   display: flex;
   overflow-x: scroll;
@@ -48,10 +63,6 @@
   height: 200px;
   width: 170px;
   border-radius: 7px;
-}
-
-.reco-title {
-  font-size: 16px;
 }
 
 .link_to {
