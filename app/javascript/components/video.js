@@ -2,7 +2,10 @@ const fallBackVideo = () => {
   navigator.getMedia(
     {
       audio: false,
-      video: true
+      video: {
+          width: { ideal: screen.width },
+          height: { ideal: screen.height - 132 }
+        }
     },
     (stream) => {
       if (navigator.mozGetUserMedia) {
@@ -83,8 +86,8 @@ const showVideo = () =>  {
     }
 
     const addLoadingScreen = () => {
-      const loadingDiv = document.getElementById('loading');
-      loadingDiv.style.display = 'block';
+      const bodyElement = document.querySelector('body');
+      bodyElement.insertAdjacentHTML('afterbegin', '<div id="loading"></div>');
     };
 
     startbutton.addEventListener('click', function(ev){
