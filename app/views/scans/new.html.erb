@@ -1,12 +1,14 @@
-<h1>Prenez une photo</h1>
 
 <video id="video"></video>
-<button id="startbutton">Prendre une photo</button>
 <canvas id="canvas" class="d-none"></canvas>
 
-
 <%= form_with(url: scans_path, method: "POST", local: true, multipart: true, id: 'form-scan') do %>
-
   <%= hidden_field_tag(:image) %>
 <% end %>
 
+<div class="navbar-scan">
+  <%= link_to url_for(:back) do %>
+  <div><i class="fas fa-times"></i></div>
+  <% end %>
+  <i class="fas fa-camera" id="startbutton"></i>
+</div>

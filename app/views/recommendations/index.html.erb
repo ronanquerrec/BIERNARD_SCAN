@@ -1,8 +1,9 @@
 <div class="container pb-4">
-  <h2 class="pt-2">Découvrir</h2>
-  <h5 class="reco-title">Puisque vous aimez la <em><%= Favourite.last.beer.name %></em>, voici des bières <strong><%= Favourite.last.beer.style %></strong> :</h5>
+  <h2 class="reco-title">Découvrir</h2>
+  <p class="reco-description">Mes suggestions se basent sur les saveurs des bières dans ta cave</p>
+  <h5 class="row-title">T'es branché <em><%= @first_tag %> non ?</em></h5>
   <div class="recommendation-row">
-    <% @style_reco.each do |beer| %>
+    <% @first_reco_beers.each do |beer| %>
       <div class="recommendation-card">
           <%= link_to beer_path(beer) do %>
             <%= image_tag beer.url_image %>
@@ -12,15 +13,27 @@
       </div>
     <% end %>
   </div>
-  <h5 class="reco-title pt-4">On s'est dit que vous apprécieriez d'autres <strong>sucrées</strong> comme la <em>Silly Pils</em> :</h5>
+  <h5 class="row-title">Une pointe de <em><%= @second_tag %></em> te fera playzer ?</h5>
   <div class="recommendation-row">
-    <% @sweet_beers.each do |beer| %>
+    <% @second_reco_beers.each do |beer| %>
       <div class="recommendation-card">
-        <%= link_to beer_path(beer) do %>
-          <%= image_tag beer.url_image %>
-          <h5><%= beer.name %></h5>
-          <p><%= beer.brewery %></p>
-        <% end %>
+          <%= link_to beer_path(beer) do %>
+            <%= image_tag beer.url_image %>
+            <h5><%= beer.name %></h5>
+            <p><%= beer.brewery %></p>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+  <h5 class="row-title">Il te faut un peu de <em><%= @third_tag %></em> dans tes bières ?</h5>
+  <div class="recommendation-row">
+    <% @third_reco_beers.each do |beer| %>
+      <div class="recommendation-card">
+          <%= link_to beer_path(beer) do %>
+            <%= image_tag beer.url_image %>
+            <h5><%= beer.name %></h5>
+            <p><%= beer.brewery %></p>
+          <% end %>
       </div>
     <% end %>
   </div>
