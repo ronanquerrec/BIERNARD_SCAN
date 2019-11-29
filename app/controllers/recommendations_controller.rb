@@ -7,7 +7,6 @@ class RecommendationsController < ApplicationController
     @first_tag = favourite_beer_tags[0]
     @second_tag = favourite_beer_tags[1]
     @third_tag = favourite_beer_tags[2]
-    raise
   end
 
   private
