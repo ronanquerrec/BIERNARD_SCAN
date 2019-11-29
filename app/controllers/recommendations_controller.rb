@@ -3,6 +3,9 @@ class RecommendationsController < ApplicationController
     @first_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[0]).first(10)
     @second_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[1]).first(10)
     @third_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[2]).first(10)
+    @first_tag = favourite_beer_tags[0]
+    @second_tag = favourite_beer_tags[1]
+    @third_tag = favourite_beer_tags[2]
   end
 
   private
@@ -13,7 +16,7 @@ class RecommendationsController < ApplicationController
       tags << beer.flavours.map { |flavour| flavour.name }
     end
     tags = tags.flatten
-    tags.group_by{|i| i.capitalize}.map { |k, v| [k, v.length] }
+    tags.group_by {|i| i.capitalize}.map { |k, v| [k, v.length] }
     tags.sort_by { |array| array.last }.reverse.first(3)
   end
 end

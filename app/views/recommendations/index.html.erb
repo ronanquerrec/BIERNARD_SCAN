@@ -1,6 +1,7 @@
 <div class="container pb-4">
-  <h2 class="pt-2">Découvrir</h2>
-  <h5 class="reco-title">Il semblerait que vous aimez le miel :</h5>
+  <h2 class="reco-title">Découvrir</h2>
+  <p class="reco-description">Mes suggestions se basent sur les saveurs des bières dans ta cave</p>
+  <h5 class="row-title">T'es branché <em><%= @first_tag %> non ?</em></h5>
   <div class="recommendation-row">
     <% @first_reco_beers.each do |beer| %>
       <div class="recommendation-card">
@@ -12,7 +13,7 @@
       </div>
     <% end %>
   </div>
-  <h5 class="reco-title">Il nous semble que vous aimez le malt :</h5>
+  <h5 class="row-title">Une pointe de <em><%= @second_tag %></em> te fera playzer ?</h5>
   <div class="recommendation-row">
     <% @second_reco_beers.each do |beer| %>
       <div class="recommendation-card">
@@ -24,7 +25,7 @@
       </div>
     <% end %>
   </div>
-  <h5 class="reco-title">Une touche de walut pour finir :</h5>
+  <h5 class="row-title">Il te faut un peu de <em><%= @third_tag %></em> dans tes bières ?</h5>
   <div class="recommendation-row">
     <% @third_reco_beers.each do |beer| %>
       <div class="recommendation-card">
