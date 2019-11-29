@@ -3,12 +3,12 @@
     <% if @page_title.present? && @page_title == "favourites_index" %>
       <%= link_to favourites_path ,class: "item active" do %>
         <i class="fas fa-heart active"></i>
-        <li class="li-item">Mes bières</li>
+        <li class="li-item">Ma cave</li>
       <% end %>
     <% else %>
       <%= link_to favourites_path ,class: "item" do %>
         <i class="fas fa-heart white"></i>
-        <li class="li-item">Mes bières</li>
+        <li class="li-item">Ma cave</li>
       <% end %>
     <% end %>
 
