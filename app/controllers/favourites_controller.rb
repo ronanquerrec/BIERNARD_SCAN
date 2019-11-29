@@ -2,6 +2,7 @@ class FavouritesController < ApplicationController
   before_action :set_beer, only: [:create, :destroy]
 
   def index
+    @page_title = "favourites_index"
     @beers = current_user.beers.reverse
   end
 
