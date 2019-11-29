@@ -24,6 +24,12 @@
     <% @beer.flavours.each do |flavour| %>
       <span class="tag"><%= flavour.name.capitalize %></span>
     <% end %>
+    <% @beer.flavours.each do |flavour| %>
+      <span class="tag"><%= flavour.name.capitalize %></span>
+    <% end %>
+    <% @beer.flavours.each do |flavour| %>
+      <span class="tag"><%= flavour.name.capitalize %></span>
+    <% end %>
   </p>
   <h3>Caractéristiques</h3>
   <div class="d-flex justify-content-between mb-2">
@@ -56,5 +62,17 @@
     <div class="bar-rating-container">
       <div class="filling" style="width:<%= @beer.sourness.fdiv(10).ceil * 10 %>%"></div>
     </div>
+  </div>
+  <h2 class="pt-2">Vous aimerez aussi</h2>
+  <div class="recommendation-row pb-4">
+    <% @show_reco.each do |beer| %>
+      <div class="recommendation-card">
+          <%= link_to beer_path(beer) do %>
+            <%= image_tag beer.url_image %>
+            <h5><%= beer.name %></h5>
+            <p><%= beer.brewery %></p>
+          <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
