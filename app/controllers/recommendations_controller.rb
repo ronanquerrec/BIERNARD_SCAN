@@ -17,7 +17,7 @@ class RecommendationsController < ApplicationController
       tags << beer.flavours.map { |flavour| flavour.name }
     end
     tags = tags.flatten
-    tags.group_by {|i| i.capitalize}.map { |k, v| [k, v.length] }
+    tags.group_by {|i| i }.map { |k, v| [k, v.length] }
         .sort_by { |array| array.last }.reverse.first(3)
         .map { |array| array.first }
   end
