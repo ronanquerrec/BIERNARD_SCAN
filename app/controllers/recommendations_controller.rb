@@ -7,6 +7,7 @@ class RecommendationsController < ApplicationController
     @first_tag = favourite_beer_tags[0]
     @second_tag = favourite_beer_tags[1]
     @third_tag = favourite_beer_tags[2]
+    raise
   end
 
   private
@@ -18,7 +19,8 @@ class RecommendationsController < ApplicationController
     end
     tags = tags.flatten
     tags.group_by {|i| i.capitalize}.map { |k, v| [k, v.length] }
-    tags.sort_by { |array| array.last }.reverse.first(3)
+        .sort_by { |array| array.last }.reverse.first(3)
+        .map { |array| array.first }
   end
 end
 
