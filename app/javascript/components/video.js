@@ -2,7 +2,10 @@ const fallBackVideo = () => {
   navigator.getMedia(
     {
       audio: false,
-      video: true
+      video: {
+          width: { ideal: screen.width },
+          height: { ideal: screen.height - 132 }
+        }
     },
     (stream) => {
       if (navigator.mozGetUserMedia) {

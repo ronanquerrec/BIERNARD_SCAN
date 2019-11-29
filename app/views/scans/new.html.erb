@@ -2,15 +2,13 @@
 <video id="video"></video>
 <canvas id="canvas" class="d-none"></canvas>
 
-
 <%= form_with(url: scans_path, method: "POST", local: true, multipart: true, id: 'form-scan') do %>
-
   <%= hidden_field_tag(:image) %>
 <% end %>
 
-<div class="d-flex justify-content-around align-items-center navbar-scan">
+<div class="navbar-scan">
   <%= link_to url_for(:back) do %>
   <div><i class="fas fa-times"></i></div>
   <% end %>
-  <button id="startbutton"><i class="fas fa-camera"></i></button>
+  <i class="fas fa-camera" id="startbutton"></i>
 </div>
