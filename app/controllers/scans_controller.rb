@@ -1,6 +1,7 @@
 # require "google/cloud/vision"
 class ScansController < ApplicationController
   def new
+    @page_title = "scan"
   end
 
   def create

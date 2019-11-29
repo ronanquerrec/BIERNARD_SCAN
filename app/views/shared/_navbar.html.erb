@@ -1,17 +1,43 @@
 <div class="bottom-nav fixed-bottom">
   <ul class="list-items">
-    <%= link_to favourites_path ,class: "item" do %>
-      <i class="fas fa-heart white"></i>
-      <li class="li-item">Ma cave</li>
+    <% if @page_title.present? && @page_title == "favourites_index" %>
+      <%= link_to favourites_path ,class: "item active" do %>
+        <i class="fas fa-heart active"></i>
+        <li class="li-item">Mes bières</li>
+      <% end %>
+    <% else %>
+      <%= link_to favourites_path ,class: "item" do %>
+        <i class="fas fa-heart white"></i>
+        <li class="li-item">Mes bières</li>
+      <% end %>
     <% end %>
+
+  <% if @page_title.present? && @page_title == "scan" %>
     <%= link_to new_scan_path, class: "item" do %>
       <div class="scan">
-        <i class="fas fa-camera"></i>
+        <i class="fas fa-camera active"></i>
       </div>
     <% end %>
+  <% else %>
+    <%= link_to new_scan_path, class: "item" do %>
+      <div class="scan">
+      <i class="fas fa-camera"></i>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if @page_title.present? && @page_title == "recommendations_index" %>
+    <%= link_to favourites_path ,class: "item active" do %>
+      <i class="fas fa-compass active"></i>
+      <li class="li-item">Découvrir</li>
+    <% end %>
+  <% else %>
     <%= link_to recommendations_path ,class: "item" do %>
       <i class="fas fa-compass"></i>
       <li class="li-item">Découvrir</li>
     <% end %>
+  <% end %>
+
   </ul>
 </div>
+

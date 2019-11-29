@@ -24,12 +24,6 @@
     <% @beer.flavours.each do |flavour| %>
       <span class="tag"><%= flavour.name.capitalize %></span>
     <% end %>
-    <% @beer.flavours.each do |flavour| %>
-      <span class="tag"><%= flavour.name.capitalize %></span>
-    <% end %>
-    <% @beer.flavours.each do |flavour| %>
-      <span class="tag"><%= flavour.name.capitalize %></span>
-    <% end %>
   </p>
   <h3>Caractéristiques</h3>
   <div class="d-flex justify-content-between mb-2">
@@ -63,7 +57,7 @@
       <div class="filling" style="width:<%= @beer.sourness.fdiv(10).ceil * 10 %>%"></div>
     </div>
   </div>
-  <h2 class="pt-2">Dans le même genre</h2>
+  <h3 class="pt-2 mt-4">Vous aimerez aussi ...</h3>
   <div class="recommendation-row pb-4">
     <% @show_reco.each do |beer| %>
       <div class="recommendation-card">

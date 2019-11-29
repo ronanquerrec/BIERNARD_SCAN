@@ -1,5 +1,6 @@
 class RecommendationsController < ApplicationController
   def index
+    @page_title = "recommendations_index"
     @first_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[0]).first(10)
     @second_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[1]).first(10)
     @third_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[2]).first(10)
