@@ -1,6 +1,6 @@
 
 .bottom-nav {
-  background-color: $blue;
+  background: linear-gradient(0deg, #F7AB59 51.56%, #F7CB59 100%);
   height: 76px;
   position: fixed;
   // padding-top: 16px;
@@ -12,23 +12,28 @@
   color: white;
   list-style:none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 12px 0;
   margin: 0;
 }
 
 i.fas.fa-heart.white {
     color: white;
-    opacity: 1;
+    opacity: 0.7;
 }
 
 i.fas.fa-heart.active {
-    color: $yellow;
+    color: white;
     opacity: 1;
 }
 
+i.fas.fa-compass {
+    color: white;
+    opacity: 0.7;
+}
+
 i.fas.fa-compass.active {
-    color: $yellow;
+    color: white;
     opacity: 1;
 }
 
@@ -42,6 +47,7 @@ a.item{
   align-items: center;
   flex-direction: column;
   color: white;
+  width: 70px;
   i {
     font-size: 28px;
     margin-bottom: 5px;
@@ -53,8 +59,7 @@ a.item{
     width: 88px;
     height:88px;
     border-radius: 50%;
-    background: $yellow;
-    background: radial-gradient(circle, #0F223F 34%, #224C8C 100%);
+    background: linear-gradient(0deg, #F7AB59 51.56%, #F7CB59 100%);
     border: solid .5px #CED5E3;
     display: flex;
     justify-content: center;
@@ -74,14 +79,19 @@ a.item.active {
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: white;
+  color: $blue;
+  width: 70px;
   // text-shadow : 0px 0px 10px rgba(255,255,255,0.2);
   i {
     font-size: 28px;
     margin-bottom: 5px;
+
   }
   li {
     font-size: 14px;
+    color: white;
+    font-weight: bolder;
+
   }
   .scan {
     width: 88px;
