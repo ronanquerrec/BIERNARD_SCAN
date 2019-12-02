@@ -27,7 +27,7 @@
   <% end %>
 
   <% if @page_title.present? && @page_title == "recommendations_index" %>
-    <%= link_to favourites_path ,class: "item active" do %>
+    <%= link_to recommendations_path ,class: "item active" do %>
       <i class="fas fa-compass active"></i>
       <li class="li-item">Découvrir</li>
     <% end %>
