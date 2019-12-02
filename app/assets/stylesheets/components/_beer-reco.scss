@@ -21,9 +21,16 @@
 
 .recommendation-row {
   display: flex;
+  border-top-style: solid;
+  border-width: thin;
+  border-color: lightgrey;
   overflow-x: scroll;
   overflow-y: hidden;
   &::-webkit-scrollbar { width: 0 !important };
+}
+
+.recommendation-row .full {
+  grid-column: 1 / -1;
 }
 
 .recommendation-card {

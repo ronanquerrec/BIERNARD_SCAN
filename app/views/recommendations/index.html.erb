@@ -3,7 +3,7 @@
     <h2 class="reco-title">Découvrir</h2>
     <p class="reco-description">Mes suggestions se basent sur les saveurs des bières dans ta cave</p>
     <h5 class="row-title">T'es branché <em><%= @first_tag %> non ?</em></h5>
-    <div class="recommendation-row">
+    <div class="recommendation-row full">
       <% @first_reco_beers.each do |beer| %>
         <div class="recommendation-card">
             <%= image_tag beer.url_image %>
