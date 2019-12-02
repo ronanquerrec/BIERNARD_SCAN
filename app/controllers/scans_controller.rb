@@ -1,5 +1,7 @@
 # require "google/cloud/vision"
 class ScansController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
+
   def new
     @page_title = "scan"
   end

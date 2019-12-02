@@ -1,6 +1,9 @@
 .body-home {
-background: $yellow;
-background: linear-gradient(0deg, $yellow 51.56%, #F7CB59 100%);
+  background: $yellow;
+  background: linear-gradient(0deg, $yellow 51.56%, #F7CB59 100%);
+  img {
+    width: 240px;
+  }
 }
 
 @keyframes shadow-pulse
@@ -61,9 +64,6 @@ background: linear-gradient(0deg, $yellow 51.56%, #F7CB59 100%);
   }
 }
 
-img {
-  width: 240px;
-}
 
 .text-info {
   color: white;

@@ -1,10 +1,17 @@
-
-<video id="video"></video>
+<div id="loading" class="d-none"><div id="loading-gif"></div></div>
+<img src="/" alt="" class="d-none" id="snap_video">
 <canvas id="canvas" class="d-none"></canvas>
-
 <%= form_with(url: scans_path, method: "POST", local: true, multipart: true, id: 'form-scan') do %>
   <%= hidden_field_tag(:image) %>
 <% end %>
+
+<div class="overlay-video">
+  <div class="overlay-border">
+    <h3>Scan l'étiquette de ta bière</h3>
+  </div>
+</div>
+
+<video id="video" autoplay muted playsinline></video>
 
 <div class="navbar-scan">
   <%= link_to url_for(:back) do %>
