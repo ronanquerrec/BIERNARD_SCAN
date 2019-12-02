@@ -1,46 +1,45 @@
-<div class="container pb-4">
-  <h2 class="reco-title">Découvrir</h2>
-  <p class="reco-description">Mes suggestions se basent sur les saveurs des bières dans ta cave</p>
-  <h5 class="row-title">T'es branché <em><%= @first_tag %> non ?</em></h5>
-  <div class="recommendation-row">
-    <% @first_reco_beers.each do |beer| %>
-      <div class="recommendation-card">
-          <%= link_to beer_path(beer) do %>
+<div class="bg-color">
+  <div class="container pb-4">
+    <h2 class="reco-title">Découvrir</h2>
+    <p class="reco-description">Mes suggestions se basent sur les saveurs des bières dans ta cave</p>
+    <h5 class="row-title">T'es branché <em><%= @first_tag %> non ?</em></h5>
+    <div class="recommendation-row">
+      <% @first_reco_beers.each do |beer| %>
+        <div class="recommendation-card">
             <%= image_tag beer.url_image %>
-            <div class="recommendation-card-info">
-              <h5><%= beer.name %></h5>
-              <p><%= beer.brewery %></p>
-            </div>
-          <% end %>
-      </div>
-    <% end %>
-  </div>
-  <h5 class="row-title">Une pointe de <em><%= @second_tag %></em> ?</h5>
-  <div class="recommendation-row">
-    <% @second_reco_beers.each do |beer| %>
-      <div class="recommendation-card">
-          <%= link_to beer_path(beer) do %>
+              <div class="recommendation-card-info">
+                <h5><%= beer.name %></h5>
+                <p><%= beer.brewery %></p>
+              </div>
+            <%= link_to "", beer_path(beer) %>
+        </div>
+      <% end %>
+    </div>
+    <h5 class="row-title">Une pointe de <em><%= @second_tag %></em> ?</h5>
+    <div class="recommendation-row">
+      <% @second_reco_beers.each do |beer| %>
+        <div class="recommendation-card">
             <%= image_tag beer.url_image %>
-             <div class="recommendation-card-info">
-               <h5><%= beer.name %></h5>
-               <p><%= beer.brewery %></p>
-             </div>
-           <% end %>
-      </div>
-    <% end %>
-  </div>
-  <h5 class="row-title">Si je te dis <em><%= @third_tag %></em> ?</h5>
-  <div class="recommendation-row">
-    <% @third_reco_beers.each do |beer| %>
-      <div class="recommendation-card">
-          <%= link_to beer_path(beer) do %>
-            <%= image_tag beer.url_image %>
-            <div class="recommendation-card-info">
-              <h5><%= beer.name %></h5>
-              <p><%= beer.brewery %></p>
-            </div>
-          <% end %>
-      </div>
-    <% end %>
+              <div class="recommendation-card-info">
+                <h5><%= beer.name %></h5>
+                <p><%= beer.brewery %></p>
+              </div>
+            <%= link_to "", beer_path(beer) %>
+        </div>
+      <% end %>
+    </div>
+    <h5 class="row-title">Si je te dis <em><%= @third_tag %></em> ?</h5>
+    <div class="recommendation-row">
+      <% @third_reco_beers.each do |beer| %>
+          <div class="recommendation-card">
+              <%= image_tag beer.url_image %>
+                <div class="recommendation-card-info">
+                  <h5><%= beer.name %></h5>
+                  <p><%= beer.brewery %></p>
+                </div>
+              <%= link_to "", beer_path(beer) %>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>
