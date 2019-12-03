@@ -17,17 +17,34 @@
     .desc-light {
       opacity: 0.7;
     }
+
+  strong {
+    font-family: Roboto
+    }
   }
 }
 
+.filet {
+    border: solid 1px #F7AB59;
+    width: 349px;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 145px;
+    margin-left: 145px;
+}
+
 .beer-details {
+  padding-right: 10px;
+  padding-left: 10px;
+
   h3 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
+    margin-top: 20px;
   }
 
   p, span {
-    font-size: 16px;
+    font-size: 18px;
     opacity: 0.7;
   }
 
@@ -43,6 +60,7 @@
     padding: 5px 15px;
     margin-right: 10px;
     background-color: $mid-gray;
+    border: solid 1px;
   }
 
   .bar-rating-container {
@@ -50,7 +68,7 @@
     height: 16px;
     border-radius: 8px;
     display: inline-block;
-    width: 200px;
+    width: 180px;
 
     .filling {
       background-color: $yellow;
