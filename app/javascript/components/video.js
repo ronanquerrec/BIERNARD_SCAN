@@ -24,6 +24,17 @@ const fallBackVideo = () => {
 
 };
 
+const defineDimensions = (height, width) => {
+  if (height > 720) {
+    const ratio = height / 720;
+    const newHeight = 720;
+    const newWidth = width / ratio;
+    return [newHeight, newWidth];
+  }
+  return [height, width];
+};
+
+
 const showVideo = () =>  {
   if (window.location.pathname === "/scans/new") {
 
@@ -31,15 +42,16 @@ const showVideo = () =>  {
     const video = document.querySelector('#video'),
         canvas       = document.querySelector('#canvas'),
         image        = document.querySelector('#image'),
-        startbutton  = document.querySelector('#startbutton'),
-        width = 200;
+        startbutton  = document.querySelector('#startbutton');
+    let width = 200;
     let height = 0;
     const snapVideo = document.querySelector('#snap_video');
 
     navigator.getMedia = ( navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
                            navigator.mozGetUserMedia ||
-                           navigator.msGetUserMedia);
+                           navigator.msGetUserMedia ||
+                           navigator.MediaDevices.getUserMedia);
 
     let aspectRatio = (window.innerHeight - 132) / window.innerWidth;
 
@@ -48,8 +60,6 @@ const showVideo = () =>  {
         audio: false,
         video: {
           facingMode: { exact: "environment" },
-          // width: { ideal: (screen.height) },
-          // height: { ideal: screen.width },
           aspectRatio: aspectRatio
          }
       },
@@ -71,13 +81,14 @@ const showVideo = () =>  {
 
     video.addEventListener('canplay', function(ev){
       if (!streaming) {
-        height = video.videoHeight / (video.videoWidth/width);
+        const dimensions = defineDimensions(video.videoHeight, video.videoWidth);
+        height = dimensions[0];
+        width = dimensions[1];
         video.setAttribute('width', width);
         video.setAttribute('height', height);
         canvas.setAttribute('width', width);
         canvas.setAttribute('height', height);
         streaming = true;
-
       }
     }, false);
 
@@ -104,13 +115,6 @@ const showVideo = () =>  {
         addLoadingScreen();
       ev.preventDefault();
     }, false);
-
-    // video.addEventListener('loadedmetadata', function(ev){
-    //   snapVideo.width = `${video.videoWidth}`;
-    //   snapVideo.height = `${video.videoHeight}`;
-    //     console.log('t')
-    //   console.log(snapVideo.width);
-    // });
   }
 };
 
