@@ -1,9 +1,11 @@
 <h1>test results</h1>
 
-<%= @matching_data.count {|result| result[:good_matching]} %>
-/
-<%= @matching_data.count %>
-<%= @matching_data.count {|result| (result[:beer_image] == "https://media.biernard.com/bieres/default-biere.png" || result[:beer_image] == "https://s3.eu-west-3.amazonaws.com/media.biernard.com/bieres/default-biere.png") }  %>
+<%= good = @matching_data.count {|result| result[:good_matching]} %>
+<%= all = @matching_data.count %>
+<%= google_errors = @matching_data.count {|result| result[:texts].size.zero? }  %>
+<%= "#{good.fdiv(all - google_errors).round(2) * 100}%" %>
+<%= "#{@duration.round} s " %>
+<%= "#{@duration.fdiv(all).round(2) * 100}ms par beer" %>
 
 <table>
     <thead>
