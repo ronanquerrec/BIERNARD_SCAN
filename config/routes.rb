@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :scans, only: [:new, :create]
 
   get 'pages/test'
-
+  get 'pages/no_match', to: 'pages#no_match', as: 'no_match'
 end
