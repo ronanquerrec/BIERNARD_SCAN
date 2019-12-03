@@ -1,6 +1,12 @@
 #video {
+  display: block;
   width: 100vw;
-  height: calc(100vh - 132px);
+  height: calc((var(--vh, 1vh) * 100) - 132px);
+}
+
+#snap_video {
+  width: 100%;
+  height: 100%;
 }
 
 #startbutton {
@@ -10,7 +16,7 @@
   }
 }
 
-button#startbutton {
+#startbutton {
   width: 40px;
   height: 40px;
 }
@@ -18,15 +24,13 @@ button#startbutton {
 .navbar-scan {
   position: fixed;
   bottom: 0;
-  right: 0;
-  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height:132px;
   background: linear-gradient(0deg, #F7AB59 51.56%, #F7CB59 100%);
   border: solid .5px #CED5E3;
-  position: fixed;
   border: none;
   z-index: 1000;
   i {

@@ -1,10 +1,10 @@
 const fallBackVideo = () => {
+  let aspectRatio = (window.innerHeight - 132) / window.innerWidth;
   navigator.getMedia(
     {
       audio: false,
       video: {
-          width: { ideal: screen.width },
-          height: { ideal: screen.height - 132 }
+          aspectRatio: 1 / aspectRatio
         }
     },
     (stream) => {
@@ -34,16 +34,24 @@ const showVideo = () =>  {
         startbutton  = document.querySelector('#startbutton'),
         width = 200;
     let height = 0;
+    const snapVideo = document.querySelector('#snap_video');
 
     navigator.getMedia = ( navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
                            navigator.mozGetUserMedia ||
                            navigator.msGetUserMedia);
 
+    let aspectRatio = (window.innerHeight - 132) / window.innerWidth;
+
     navigator.getMedia(
       {
         audio: false,
-        video: { facingMode: { exact: "environment" } }
+        video: {
+          facingMode: { exact: "environment" },
+          // width: { ideal: (screen.height) },
+          // height: { ideal: screen.width },
+          aspectRatio: aspectRatio
+         }
       },
       (stream) => {
         if (navigator.mozGetUserMedia) {
@@ -61,9 +69,6 @@ const showVideo = () =>  {
       }
     );
 
-
-
-
     video.addEventListener('canplay', function(ev){
       if (!streaming) {
         height = video.videoHeight / (video.videoWidth/width);
@@ -72,6 +77,7 @@ const showVideo = () =>  {
         canvas.setAttribute('width', width);
         canvas.setAttribute('height', height);
         streaming = true;
+
       }
     }, false);
 
@@ -82,12 +88,15 @@ const showVideo = () =>  {
       const data = canvas.toDataURL('image/png');
       image.value = data;
       const form = document.getElementById("form-scan");
+      snapVideo.src = data;
+      snapVideo.classList.remove("d-none");
+      video.classList.add('d-none');
       form.submit();
     }
 
     const addLoadingScreen = () => {
-      const bodyElement = document.querySelector('body');
-      bodyElement.insertAdjacentHTML('afterbegin', '<div id="loading"></div>');
+      const loadingElement = document.querySelector('#loading');
+      loadingElement.classList.remove('d-none');
     };
 
     startbutton.addEventListener('click', function(ev){
@@ -95,6 +104,13 @@ const showVideo = () =>  {
         addLoadingScreen();
       ev.preventDefault();
     }, false);
+
+    // video.addEventListener('loadedmetadata', function(ev){
+    //   snapVideo.width = `${video.videoWidth}`;
+    //   snapVideo.height = `${video.videoHeight}`;
+    //     console.log('t')
+    //   console.log(snapVideo.width);
+    // });
   }
 };
 

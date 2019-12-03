@@ -12,10 +12,14 @@ user = User.create!(
 )
 
 require 'json'
+require 'open-uri'
 
-filepath = "#{Rails.root}/db/beers.json"
+url = 'https://gist.githubusercontent.com/HadrienDT/5834109f3f52a90796dac82259022aec/raw/cc1b23b2d12a86714c52fb07c877898ccaf729ee/beers.json'
 
-serialized_beers = File.read(filepath)
+# filepath = "#{Rails.root}/db/beers.json"
+
+# serialized_beers = File.read(filepath)
+serialized_beers = open(url).read
 
 beers = JSON.parse(serialized_beers)
 
