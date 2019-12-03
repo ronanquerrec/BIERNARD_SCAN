@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'google-cloud-vision'
 gem "cloudinary"
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'pg_search', '~> 2.3.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

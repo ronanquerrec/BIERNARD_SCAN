@@ -1,11 +1,13 @@
 <h1 class="reco-title">Fichtre !</h1>
 <p class="reco-description">Je n'ai pas réussi à identifier ta bière, tu peux saisir son nom pour la retrouver :</p>
 
-<form novalidate="novalidate" class="simple_form" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
-</form>
+<%= form_tag beer_path("no_match"), method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Cherche ta bière..."
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+
