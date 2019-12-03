@@ -1,0 +1,76 @@
+.card-discover {
+  border: solid 1px $border-grey;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(206, 213, 227, 0.5);
+  position: relative;
+  margin-bottom: 20px;
+  padding: 20px 0px;
+}
+
+.discover-info {
+ display: grid;
+ grid-template-columns: 1fr 2fr;
+ img {
+  height: 260px;
+  max-width: 150%;
+  object-fit: cover;
+  object-position: 150% center;
+ }
+}
+
+.beer-bottle {
+  background-size: cover;
+}
+
+
+.tags-container {
+  display: flex;
+  flex-direction: column;
+  h4 {
+    color: $blue;
+    font-size: 1em;
+    text-align: right;
+    padding-right: 2em;
+  }
+}
+
+.card-discover-titles {
+  text-align: center;
+  h2 {
+    font-size: 24px;
+  }
+  h4 {
+    opacity: 50%;
+    font-weight: normal;
+    font-size: 20px;
+  }
+}
+
+.discover-tags {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1em 0px;
+  ul {
+    list-style: none;
+    padding-left: 0px;
+    width: 100%;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    margin-left: 2em;
+  }
+  li {
+    margin: 2em 0px;
+  }
+  li > span {
+    border: solid 1px $border-grey;
+    border-top-right-radius: 80px 80px;
+    border-bottom-right-radius: 80px 80px;
+    padding: 10px 30px 10px 10px;
+    color: $border-grey;
+    text-align: right;
+    border-left: 0px;
+  }
+
+}
