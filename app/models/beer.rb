@@ -12,6 +12,17 @@ class Beer < ApplicationRecord
                 .first[0]
   end
 
+  def self.find_best_matching_beer_with_score(texts)
+    texts = texts[1..-1] if texts.size.positive?
+    beers = Beer.all
+    scored_beers = beers.map do |beer|
+      [beer, beer.compute_matching_score(texts)]
+    end
+    scored_beers.sort_by { |scored_beer| scored_beer[1] }
+                .reverse
+                .first
+  end
+
   def compute_matching_score(texts)
     global_score = 0
     texts.each do |text|

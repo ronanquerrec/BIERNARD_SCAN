@@ -7,10 +7,13 @@ class GoogleVisionService
     scan_results = []
 
     image_annotator = Google::Cloud::Vision::ImageAnnotator.new
-
+    image_context = {
+      language_hints: %w[da, nl, en, fr, de, it, no, pl, pt, es]
+    }
     response = image_annotator.text_detection(
       image: @photo_url,
-      max_results: 1 # optional, defaults to 10
+      max_results: 1, # optional, defaults to 10
+      image_context: image_context
     )
 
     response.responses.each do |res|
@@ -33,21 +36,41 @@ class GoogleVisionService
       i += 1
     end
 
-    File.open('test_data_beer_matching.json', 'wb') do |file|
+    File.open('test_language_hints.json', 'wb') do |file|
       file.write(JSON.generate({ data: results }))
     end
   end
 
   def self.test_pourcentage_matching
-    serialized_beers = File.read("test_data_beer_matching.json")
+    serialized_beers = File.read("test_language_hints.json")
 
     results = JSON.parse(serialized_beers)
     good_results = 0
-    results["data"].each do |result|
+    # results["data"].each do |result|
+    #   beer = Beer.find(result["beer"])
+    #   matched_beer = Beer.find_best_matching_beer(result["texts"])
+    #   good_results += 1 if beer == matched_beer
+    # end
+
+    # good_results
+    results["data"].map do |result|
       beer = Beer.find(result["beer"])
-      matched_beer = Beer.find_best_matching_beer(result["texts"])
-      good_results += 1 if beer == matched_beer
+      matched_beer = Beer.find_best_matching_beer_with_score(result["texts"])
+      puts matched_beer
+      matched_beer_name = matched_beer[0].name unless matched_beer[0].nil?
+      matched_beer_brewery = matched_beer[0].brewery unless matched_beer[0].nil?
+      good_matching = (beer == matched_beer[0])
+      {
+        beer_id: beer.id,
+        beer_name: beer.name,
+        beer_brewery: beer.brewery,
+        beer_image: beer.url_image,
+        texts: result["texts"],
+        matched_beer_name: matched_beer_name,
+        matched_beer_brewery: matched_beer_brewery,
+        good_matching: good_matching,
+        score: matched_beer[1]
+      }
     end
-    good_results
   end
 end

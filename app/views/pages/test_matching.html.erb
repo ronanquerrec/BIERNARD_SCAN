@@ -1,0 +1,35 @@
+<h1>test results</h1>
+
+<%= @matching_data.count {|result| result[:good_matching]} %>
+/
+<%= @matching_data.count %>
+<%= @matching_data.count {|result| (result[:beer_image] == "https://media.biernard.com/bieres/default-biere.png" || result[:beer_image] == "https://s3.eu-west-3.amazonaws.com/media.biernard.com/bieres/default-biere.png") }  %>
+
+<table>
+    <thead>
+        <tr>
+            <th>Result</th>
+            <th>Image</th>
+            <th>Texts</th>
+            <th>Beer Name</th>
+            <th>Beer Brewery</th>
+            <th>Beer Name Matched</th>
+            <th>Beer Brewery Matched</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @matching_data.each do |result| %>
+        <tr>
+            <td><%= result[:good_matching] %></td>
+            <td><%= image_tag result[:beer_image], alt: "alttext", width: "50px"%></td>
+            <td><%= result[:texts] %></td>
+            <td><%= result[:beer_name] %></td>
+            <td><%= result[:beer_brewery] %></td>
+            <td><%= result[:matched_beer_name] %></td>
+            <td><%= result[:matched_beer_brewery] %></td>
+            <td><%= result[:score].round(2) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
