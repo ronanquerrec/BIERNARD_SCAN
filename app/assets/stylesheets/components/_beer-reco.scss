@@ -1,47 +1,75 @@
+.container {
+  background: #fafcff;
+}
+
 .reco-title {
   padding-top: 16px;
   text-align: center;
   line-height: 0.4;
+  font-size: 40px;
 }
 
 .reco-description {
   text-align: center;
+  font-size: larger;
 }
 
 .row-title {
-  font-size: 16px;
-  margin-top: 5px;
+  font-size: 24px;
+  margin-top: 10px;
 }
 
 .recommendation-row {
   display: flex;
+  border-top-style: solid;
+  border-width: thin;
+  border-color: lightgrey;
   overflow-x: scroll;
   overflow-y: hidden;
   &::-webkit-scrollbar { width: 0 !important };
 }
 
-.recommendation-card, {
+.recommendation-row .full {
+  grid-column: 1 / -1;
+}
+
+.recommendation-card {
   margin: 6px;
-  padding-top: 13px;
-  height: 267.8px;
-  width: 170px;
-  background-color: #F9FBFF;
+  height: 257.8px;
+  flex: 0 0 200px;
   border: solid 0.4px #C5D2F1;
   border-radius: 7px;
   box-shadow: 2px 2px 10px rgba(78, 74, 74, 0.2);
+  background: white;
+  position: relative;
+  text-align: center;
+}
+
+.recommendation-card-info {
+  background: white;
+  height: 55px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 
 .recommendation-card img {
   height: 200px;
-  width:170px;
+  width: 170px;
+  padding: 15px;
 }
 
 .recommendation-card a {
   text-decoration: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .recommendation-card h5,
 .recommendation-card p {
+
   padding-left: 8px;
   line-height: 1;
   overflow: hidden;
@@ -56,14 +84,8 @@
   padding-top: 10px;
 }
 .recommendation-card p {
-  color: #848484
-}
-
-.carousel,
-.carousel img {
-  height: 200px;
-  width: 170px;
-  border-radius: 7px;
+  color: #848484;
+  line-height: 0.9;
 }
 
 .link_to {
