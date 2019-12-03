@@ -2,14 +2,20 @@ class Beer < ApplicationRecord
   has_many :beer_flavours
   has_many :flavours, through: :beer_flavours
 
+  LOW_SCORE_STRINGS = %w[de ale brewing ipa the pale la a blonde beer e d biere black vol tripel n alc aged in and]
+
   def self.find_best_matching_beer(texts)
+    find_best_matching_beer_with_score(texts)[0]
+  end
+
+  def self.find_best_matching_beer_with_score(texts)
     beers = Beer.all
     scored_beers = beers.map do |beer|
       [beer, beer.compute_matching_score(texts)]
     end
     scored_beers.sort_by { |scored_beer| scored_beer[1] }
                 .reverse
-                .first[0]
+                .first
   end
 
   def compute_matching_score(texts)
@@ -21,19 +27,21 @@ class Beer < ApplicationRecord
   end
 
   def compute_score_of_text(text)
+    return 0 if (self.keywords.nil? || text.size < 3 || LOW_SCORE_STRINGS.include?(text.downcase))
+
     text = text.downcase
-    name = self.name.downcase
-    brewery = self.brewery.downcase
+    keywords = self.keywords.split.map(&:downcase)
+    keywords = keywords - LOW_SCORE_STRINGS
 
-    score = 0
+    keywords.each do |keyword|
+      distance = LevenshteinsController.distance(text, keyword)
+      if distance < 2
+        return ([keyword.length, text.length].min * 2).fdiv([keyword.length, text.length].max)
 
-    if name.include?(text) || text.include?(name)
-      score += ([name.length, text.length].min * 2).fdiv([name.length, text.length].max)
+      end
     end
-    if brewery.include?(text) || text.include?(brewery)
-      score += [brewery.length, text.length].min.fdiv([brewery.length, text.length].max)
-    end
 
-    score
+    return 0
+
   end
 end

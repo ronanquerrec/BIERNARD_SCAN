@@ -3,4 +3,11 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def test_matching
+    ts_start = Time.now
+    @matching_data = GoogleVisionService.test_pourcentage_matching
+    ts_end = Time.now
+    @duration = ts_end - ts_start
+  end
 end
