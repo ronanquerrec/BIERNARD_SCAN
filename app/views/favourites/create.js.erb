@@ -3,7 +3,6 @@ function toggleHeart() {
   simpleForm.outerHTML = '<%= j render "shared/heart_form", beer: @beer %>';
 };
 
-
 function displayNotif() {
   const notifDiv = document.querySelector('.alert-notif');
   const notifText = document.querySelector('.alert-notif span');
@@ -11,6 +10,12 @@ function displayNotif() {
   notifDiv.classList.remove('d-none');
 };
 
+function blinkHeartTab() {
+  const heartTabElement = document.querySelector('.bottom-nav .fa-heart');
+  console.log(heartTabElement);
+  heartTabElement.classList.add('animated', 'wobble');
+};
 
 toggleHeart();
+blinkHeartTab();
 // displayNotif();

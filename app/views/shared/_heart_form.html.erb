@@ -2,7 +2,7 @@
   <%= simple_form_for @favourite, method: :delete, remote: true do |f| %>
     <%= f.input :beer_id, input_html: {value: beer.id}, as: :hidden %>
     <%= button_tag(type: 'submit') do %>
-      <i class="fas fa-heart animated heartBeat"></i>
+      <i class="fas fa-heart"></i>
     <% end %>
   <% end %>
 <% else %>
