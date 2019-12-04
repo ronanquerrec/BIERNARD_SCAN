@@ -4,7 +4,9 @@ class GoogleVisionService
   end
 
   def texts_from_image
+    start_ts = Time.now
     scan_results = []
+
 
     image_annotator = Google::Cloud::Vision::ImageAnnotator.new
     image_context = {
@@ -21,6 +23,9 @@ class GoogleVisionService
         scan_results << text.description
       end
     end
+    end_ts = Time.now
+
+    puts "#{(end_ts - start_ts)} s for google"
     scan_results
   end
 
