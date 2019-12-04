@@ -37,12 +37,7 @@ const showVideo = () =>  {
        }
     };
     const successCallback = stream => {
-      if (navigator.mozGetUserMedia) {
-        video.mozSrcObject = stream;
-      } else {
-        const vendorURL = window.URL || window.webkitURL;
-        video.srcObject = stream;
-      }
+      video.srcObject = stream;
       video.play();
     }
     const errorCallback = err => {
