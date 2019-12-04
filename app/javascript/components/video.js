@@ -25,9 +25,9 @@ const fallBackVideo = () => {
 };
 
 const defineDimensions = (height, width) => {
-  if (height > 720) {
-    const ratio = height / 720;
-    const newHeight = 720;
+  if (height > 360) {
+    const ratio = height / 360;
+    const newHeight = 360;
     const newWidth = width / ratio;
     return [newHeight, newWidth];
   }
