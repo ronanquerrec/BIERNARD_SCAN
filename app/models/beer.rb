@@ -42,14 +42,21 @@ class Beer < ApplicationRecord
     keywords = keywords - LOW_SCORE_STRINGS
 
     keywords.each do |keyword|
-      distance = LevenshteinsController.distance(text, keyword)
-      if distance < 2
+      if keyword.include?(text) || text.include?(keyword)
         return ([keyword.length, text.length].min * 2).fdiv([keyword.length, text.length].max)
 
       end
     end
 
-    return 0
+    #TROP LENT MAIS ON GARDE
+    # keywords.each do |keyword|
+    #   distance = LevenshteinsController.distance(text, keyword)
+    #   if distance < 2
+    #     return ([keyword.length, text.length].min * 2).fdiv([keyword.length, text.length].max)
 
+    #   end
+    # end
+
+    return 0
   end
 end
