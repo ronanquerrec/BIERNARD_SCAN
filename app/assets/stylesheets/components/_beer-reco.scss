@@ -69,17 +69,19 @@
 
 .recommendation-card h5,
 .recommendation-card p {
+
+  padding-left: 8px;
+  line-height: 1;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  max-width: 200px;
-  font-size: 20px;
+  max-width: 250px;
+  font-size: 15px;
 }
 
 .recommendation-card h5 {
-  padding-top: 6px;
-  line-height: 0.7;
+  padding-top: 10px;
 }
 .recommendation-card p {
   color: #848484;

@@ -1,0 +1,37 @@
+<h1>test results</h1>
+
+<%= good = @matching_data.count {|result| result[:good_matching]} %>
+<%= all = @matching_data.count %>
+<%= google_errors = @matching_data.count {|result| result[:texts].size.zero? }  %>
+<%= "#{good.fdiv(all - google_errors).round(2) * 100}%" %>
+<%= "#{@duration.round} s " %>
+<%= "#{@duration.fdiv(all).round(2) * 100}ms par beer" %>
+
+<table>
+    <thead>
+        <tr>
+            <th>Result</th>
+            <th>Image</th>
+            <th>Texts</th>
+            <th>Beer Name</th>
+            <th>Beer Brewery</th>
+            <th>Beer Name Matched</th>
+            <th>Beer Brewery Matched</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @matching_data.each do |result| %>
+        <tr>
+            <td><%= result[:good_matching] %></td>
+            <td><%= image_tag result[:beer_image], alt: "alttext", width: "50px"%></td>
+            <td><%= result[:texts] %></td>
+            <td><%= result[:beer_name] %></td>
+            <td><%= result[:beer_brewery] %></td>
+            <td><%= result[:matched_beer_name] %></td>
+            <td><%= result[:matched_beer_brewery] %></td>
+            <td><%= result[:score].round(2) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

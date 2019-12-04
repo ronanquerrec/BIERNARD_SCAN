@@ -50,3 +50,4 @@ solr/pids
 config/service-account-file-new.json
 db/beers.json
 test_data_beer_matching.json
+test_language_hints.json
