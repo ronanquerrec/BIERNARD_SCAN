@@ -29,28 +29,26 @@ const showVideo = () =>  {
 
     let aspectRatio = (window.innerHeight - 132) / window.innerWidth;
 
-    navigator.getMedia(
-      {
-        audio: false,
-        video: {
-          facingMode: { ideal: "environment" },
-          aspectRatio: aspectRatio
-         }
-      },
-      (stream) => {
-        if (navigator.mozGetUserMedia) {
-
-          video.mozSrcObject = stream;
-        } else {
-          const vendorURL = window.URL || window.webkitURL;
-          video.srcObject = stream;
-        }
-        video.play();
-      },
-      function(err) {
-        console.log("An error occured! ", err);
+    const constraints = {
+      audio: false,
+      video: {
+        facingMode: { ideal: "environment" },
+        aspectRatio: aspectRatio
+       }
+    };
+    const successCallback = stream => {
+      if (navigator.mozGetUserMedia) {
+        video.mozSrcObject = stream;
+      } else {
+        const vendorURL = window.URL || window.webkitURL;
+        video.srcObject = stream;
       }
-    );
+      video.play();
+    }
+    const errorCallback = err => {
+      console.log("An error occured! ", err);
+    }
+    navigator.getMedia(constraints, successCallback, errorCallback);
 
     video.addEventListener('canplay', function(ev){
       if (!streaming) {
