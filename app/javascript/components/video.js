@@ -1,29 +1,3 @@
-const fallBackVideo = () => {
-  let aspectRatio = (window.innerHeight - 132) / window.innerWidth;
-  navigator.getMedia(
-    {
-      audio: false,
-      video: {
-          aspectRatio: 1 / aspectRatio
-        }
-    },
-    (stream) => {
-      if (navigator.mozGetUserMedia) {
-
-        video.mozSrcObject = stream;
-      } else {
-        const vendorURL = window.URL || window.webkitURL;
-        video.srcObject = stream;
-      }
-      video.play();
-    },
-    function(err) {
-      console.log("An error occured! " + err);
-    }
-  );
-
-};
-
 const defineDimensions = (height, width) => {
   if (height > 360) {
     const ratio = height / 360;
@@ -59,7 +33,7 @@ const showVideo = () =>  {
       {
         audio: false,
         video: {
-          facingMode: { exact: "environment" },
+          facingMode: { ideal: "environment" },
           aspectRatio: aspectRatio
          }
       },
@@ -74,8 +48,7 @@ const showVideo = () =>  {
         video.play();
       },
       function(err) {
-        console.log("An error occured! " + err);
-        fallBackVideo();
+        console.log("An error occured! ", err);
       }
     );
 
