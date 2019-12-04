@@ -2,12 +2,12 @@ class Beer < ApplicationRecord
   has_many :beer_flavours
   has_many :flavours, through: :beer_flavours
 
-  include PgSearch::Beer
-  pg_search_scope :search_by_name,
-  against: [:name],
-  using: {
-    tsearch: { prefix: true }
-  }
+  # include PgSearch::Beer
+  # pg_search_scope :search_by_name,
+  # against: [:name],
+  # using: {
+  #   tsearch: { prefix: true }
+  # }
 
   def self.find_best_matching_beer(texts)
     beers = Beer.all
