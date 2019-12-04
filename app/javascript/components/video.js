@@ -36,13 +36,20 @@ const showVideo = () =>  {
       console.log("An error occured! ", err);
     }
 
-    navigator.getUserMediaForOldBrowsers = (
-      navigator.getUserMedia ||
-      navigator.webkitGetUserMedia ||
-      navigator.mozGetUserMedia ||
-      navigator.msGetUserMedia
-    );
-    navigator.getUserMediaForOldBrowsers(constraints, successCallback, errorCallback);
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia(constraints).
+        then(successCallback).
+        catch(errorCallback);
+    } else {
+      console.log("using fallback polyfill for old browsers")
+      navigator.getUserMediaForOldBrowsers = (
+        navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia
+      );
+      navigator.getUserMediaForOldBrowsers(constraints, successCallback, errorCallback);
+    }
 
     video.addEventListener('canplay', function(ev){
       if (!streaming) {
