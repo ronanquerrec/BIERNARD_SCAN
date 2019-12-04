@@ -3,7 +3,7 @@ class FavouritesController < ApplicationController
 
   def index
     @page_title = "favourites_index"
-    @beers = current_user.favourites.map { |favourite| favourite.beer }.reverse
+    @beers = current_user.beers.where.not(keywords: "").reverse
   end
 
   def create

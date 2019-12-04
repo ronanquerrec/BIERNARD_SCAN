@@ -9,7 +9,7 @@ class Beer < ApplicationRecord
   end
 
   def self.find_best_matching_beer_with_score(texts)
-    beers = Beer.all
+    beers = Beer.where.not(keywords: "")
     scored_beers = beers.map do |beer|
       [beer, beer.compute_matching_score(texts)]
     end
