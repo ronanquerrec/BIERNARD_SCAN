@@ -8,6 +8,7 @@ class Beer < ApplicationRecord
   # using: {
   #   tsearch: { prefix: true }
   # }
+
   LOW_SCORE_STRINGS = %w[de ale brewing ipa the pale la a blonde beer e d biere black vol tripel n alc aged in and]
 
   def self.find_best_matching_beer(texts)

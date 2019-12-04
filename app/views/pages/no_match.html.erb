@@ -1,13 +1,16 @@
 <h1 class="reco-title">Fichtre !</h1>
 <p class="reco-description">Je n'ai pas réussi à identifier ta bière, tu peux saisir son nom pour la retrouver :</p>
+<div class="wrong_beer_search">
+  <%= form_tag beer_path("no_match"), method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control autocomplete",
+      placeholder: "Cherche ta bière..."
+    %>
+    <ul class="search-result">
 
-<%= form_tag beer_path("no_match"), method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Cherche ta bière..."
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
+    </ul>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 

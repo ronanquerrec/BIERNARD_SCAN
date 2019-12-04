@@ -6,6 +6,13 @@ class PagesController < ApplicationController
 
   def no_match
   end
+
+  def autocomplete
+    query = params[:query]
+    @beers = Beer.where("name ILIKE ?", "%#{query}%")
+    render json: @beers
+  end
+
   def test_matching
     ts_start = Time.now
     @matching_data = GoogleVisionService.test_pourcentage_matching
