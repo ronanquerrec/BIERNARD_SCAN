@@ -59,6 +59,8 @@
       </div>
     <% end %>
   </div>
+<% else %>
+  <p>Rajoute d'autres bières à ta cave pour avoir d'avantage de recommendations. </p>
 <% end %>
 <% if @third_tag.present? %>
   <h5 class="discover-row-title">Si je te dis <span><%= @third_tag %></span> ?</h5>
@@ -86,4 +88,6 @@
       </div>
     <% end %>
   </div>
+<% else %>
+  <br>
 <% end %>
