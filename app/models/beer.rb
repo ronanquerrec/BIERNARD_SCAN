@@ -35,11 +35,12 @@ class Beer < ApplicationRecord
   end
 
   def compute_score_of_text(text)
-    return 0 if (self.keywords.nil? || text.size < 3 || LOW_SCORE_STRINGS.include?(text.downcase))
+    return 0 if (self.keywords.nil? || text.size < 3)
 
     text = text.downcase
     keywords = self.keywords.split.map(&:downcase)
-    keywords = keywords - LOW_SCORE_STRINGS
+
+    multiplicator = LOW_SCORE_STRINGS.include?(text.downcase) ? 0.5 : 1
 
     # TROP LENT MAIS ON GARDE
     # keywords.each do |keyword|
@@ -52,7 +53,7 @@ class Beer < ApplicationRecord
 
     keywords.each do |keyword|
       if keyword.include?(text) || text.include?(keyword)
-        return ([keyword.length, text.length].min * 2).fdiv([keyword.length, text.length].max)
+        return multiplicator * ([keyword.length, text.length].min * 2).fdiv([keyword.length, text.length].max)
 
       end
     end
