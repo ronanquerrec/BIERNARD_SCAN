@@ -62,6 +62,9 @@ puts "Creating favorites beers list..."
     )
 end
 
+puts "Translating flavours to french ..."
+Flavour.translate
+
 
 puts 'Finished!'
 
