@@ -20,15 +20,7 @@ const showVideo = () =>  {
     let width = 200;
     let height = 0;
     const snapVideo = document.querySelector('#snap_video');
-
-    navigator.getMedia = ( navigator.getUserMedia ||
-                           navigator.webkitGetUserMedia ||
-                           navigator.mozGetUserMedia ||
-                           navigator.msGetUserMedia ||
-                           navigator.MediaDevices.getUserMedia);
-
     let aspectRatio = (window.innerHeight - 132) / window.innerWidth;
-
     const constraints = {
       audio: false,
       video: {
@@ -43,7 +35,14 @@ const showVideo = () =>  {
     const errorCallback = err => {
       console.log("An error occured! ", err);
     }
-    navigator.getMedia(constraints, successCallback, errorCallback);
+
+    navigator.getUserMediaForOldBrowsers = (
+      navigator.getUserMedia ||
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia ||
+      navigator.msGetUserMedia
+    );
+    navigator.getUserMediaForOldBrowsers(constraints, successCallback, errorCallback);
 
     video.addEventListener('canplay', function(ev){
       if (!streaming) {
