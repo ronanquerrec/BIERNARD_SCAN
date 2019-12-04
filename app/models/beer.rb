@@ -1,8 +1,16 @@
 class Beer < ApplicationRecord
-  has_many :beer_flavours
+  has_many :beer_flavours, dependent: :destroy
+  has_many :favourites, dependent: :destroy
   has_many :flavours, through: :beer_flavours
 
   LOW_SCORE_STRINGS = %w[de ale brewing ipa the pale la a blonde beer e d biere black vol tripel n alc aged in and]
+
+  def self.destroy_beers_without_images
+    beers = Beer.where("url_image LIKE '%default%'")
+    beers.each do |beer|
+      beer.destroy
+    end
+  end
 
   def self.find_best_matching_beer(texts)
     find_best_matching_beer_with_score(texts)[0]
