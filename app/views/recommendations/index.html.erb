@@ -7,7 +7,7 @@
 <% if @first_tag.present? %>
   <h5 class="discover-row-title">T'es branché <span><%= @first_tag %></span> non ?</h5>
   <div class="discover-row-reco">
-    <% @second_reco_beers.each do |beer| %>
+    <% @first_reco_beers.each do |beer| %>
       <div class="card-discover">
         <div class="card-discover-titles">
           <h2><%= beer.name %></h2>
@@ -26,6 +26,7 @@
             <h4 id='en-savoir-plus'>en savoir plus ></h4>
           </div>
         </div>
+        <%= link_to "", beer_path(beer) %>
       </div>
     <% end %>
   </div>
@@ -54,6 +55,7 @@
             <h4 id='en-savoir-plus'>en savoir plus ></h4>
           </div>
         </div>
+        <%= link_to "", beer_path(beer) %>
       </div>
     <% end %>
   </div>
@@ -61,7 +63,7 @@
 <% if @third_tag.present? %>
   <h5 class="discover-row-title">Si je te dis <span><%= @third_tag %></span> ?</h5>
   <div class="discover-row-reco">
-    <% @second_reco_beers.each do |beer| %>
+    <% @third_reco_beers.each do |beer| %>
       <div class="card-discover">
         <div class="card-discover-titles">
           <h2><%= beer.name %></h2>
@@ -80,6 +82,7 @@
             <h4 id='en-savoir-plus'>en savoir plus ></h4>
           </div>
         </div>
+        <%= link_to "", beer_path(beer) %>
       </div>
     <% end %>
   </div>
