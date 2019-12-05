@@ -26,6 +26,24 @@ class Beer < ApplicationRecord
                 .first
   end
 
+  def self.add_beers
+    Beer.create!(
+      name: "Hair in the mailbox",
+      description: "Hair in the Mailbox du brasseur danois Mikkeller est une IPA jaune-orange coiffée d'une large mousse blanche qui libère des arômes d'agrumes, de citron, de houblon et de malt. \nEn bouche, on y retrouve des saveurs de pamplemousse, de citron, de houblon, de malt, de pin, d'herbes et de fruits. \nElle est marquée par une amertume prenante et maîtrisée, menant vers une finale sèche et houblonnée.",
+      fizzing: 60,
+      bitterness: 60,
+      sweetness: 35,
+      alcohol_percentage: 6.3,
+      brewery: "Mikkeller",
+      country: "Danemark",
+      url_image: "https://images.interdrinks.com/v5/img/p/32974-48623-w350-h455-transparent.png",
+      style: "India Pale Ale",
+      strength: 40,
+      sourness: 10,
+      colour: "Gold"
+    )
+  end
+
   def compute_matching_score(texts)
     global_score = 0
     texts.each do |text|
