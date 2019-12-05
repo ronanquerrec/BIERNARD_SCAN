@@ -11,7 +11,7 @@ class BeersController < ApplicationController
       @show_reco = Beer.where(style: Beer.find(params[:id]).style).sample(10)
     end
     @favourite = Favourite.where(user: current_user, beer: @beer).first || Favourite.new
-    @show_reco = Beer.where(style: Beer.find(params[:id]).style).sample(10)
+    @show_reco = Beer.where(style: Beer.find(@beer.id).style).sample(10)
     @show_reco.delete(@beer)
   end
 end
