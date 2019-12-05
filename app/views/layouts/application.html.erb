@@ -34,7 +34,7 @@
   </head>
   <body>
     <div class="<%= "body-home" if current_page?(root_path) %>">
-      <div class="<%= "container" unless current_page?(new_scan_path) unless current_page?(root_path) %> <%= "pt-3" unless current_page?(root_path) | current_page?(new_scan_path) %> ">
+      <div class="<%= "container" unless current_page?(new_scan_path) %> <%= "pt-3" unless current_page?(root_path) | current_page?(new_scan_path) %> ">
         <div class="<%="row" unless current_page?(new_scan_path) %>">
           <div class="<%= "col-12" unless current_page?(new_scan_path) %>">
             <div class="<%= "mb-6" unless current_page?(new_scan_path) | current_page?(root_path) %>">
@@ -48,6 +48,8 @@
         </div>
       </div>
     </div>
+    <div data-user-signed-in="<%= user_signed_in? %>"></div>
+    <%= render "shared/sign_in_modal" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
