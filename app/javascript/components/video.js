@@ -1,33 +1,7 @@
-const fallBackVideo = () => {
-  let aspectRatio = (window.innerHeight - 132) / window.innerWidth;
-  navigator.getMedia(
-    {
-      audio: false,
-      video: {
-          aspectRatio: 1 / aspectRatio
-        }
-    },
-    (stream) => {
-      if (navigator.mozGetUserMedia) {
-
-        video.mozSrcObject = stream;
-      } else {
-        const vendorURL = window.URL || window.webkitURL;
-        video.srcObject = stream;
-      }
-      video.play();
-    },
-    function(err) {
-      console.log("An error occured! " + err);
-    }
-  );
-
-};
-
 const defineDimensions = (height, width) => {
-  if (height > 720) {
-    const ratio = height / 720;
-    const newHeight = 720;
+  if (height > 360) {
+    const ratio = height / 360;
+    const newHeight = 360;
     const newWidth = width / ratio;
     return [newHeight, newWidth];
   }
@@ -46,38 +20,36 @@ const showVideo = () =>  {
     let width = 200;
     let height = 0;
     const snapVideo = document.querySelector('#snap_video');
-
-    navigator.getMedia = ( navigator.getUserMedia ||
-                           navigator.webkitGetUserMedia ||
-                           navigator.mozGetUserMedia ||
-                           navigator.msGetUserMedia ||
-                           navigator.MediaDevices.getUserMedia);
-
     let aspectRatio = (window.innerHeight - 132) / window.innerWidth;
+    const constraints = {
+      audio: false,
+      video: {
+        facingMode: { ideal: "environment" },
+        aspectRatio: aspectRatio
+       }
+    };
+    const successCallback = stream => {
+      video.srcObject = stream;
+      video.play();
+    }
+    const errorCallback = err => {
+      console.log("An error occured! ", err);
+    }
 
-    navigator.getMedia(
-      {
-        audio: false,
-        video: {
-          facingMode: { exact: "environment" },
-          aspectRatio: aspectRatio
-         }
-      },
-      (stream) => {
-        if (navigator.mozGetUserMedia) {
-
-          video.mozSrcObject = stream;
-        } else {
-          const vendorURL = window.URL || window.webkitURL;
-          video.srcObject = stream;
-        }
-        video.play();
-      },
-      function(err) {
-        console.log("An error occured! " + err);
-        fallBackVideo();
-      }
-    );
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia(constraints).
+        then(successCallback).
+        catch(errorCallback);
+    } else {
+      console.log("using fallback polyfill for old browsers")
+      navigator.getUserMediaForOldBrowsers = (
+        navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia
+      );
+      navigator.getUserMediaForOldBrowsers(constraints, successCallback, errorCallback);
+    }
 
     video.addEventListener('canplay', function(ev){
       if (!streaming) {

@@ -1,5 +1,6 @@
 class Beer < ApplicationRecord
-  has_many :beer_flavours
+  has_many :beer_flavours, dependent: :destroy
+  has_many :favourites, dependent: :destroy
   has_many :flavours, through: :beer_flavours
 
   # include PgSearch::Beer
@@ -10,6 +11,13 @@ class Beer < ApplicationRecord
   # }
 
   LOW_SCORE_STRINGS = %w[de ale brewing ipa the pale la a blonde beer e d biere black vol tripel n alc aged in and]
+
+  def self.destroy_beers_without_images
+    beers = Beer.where("url_image LIKE '%default%'")
+    beers.each do |beer|
+      beer.destroy
+    end
+  end
 
   def self.find_best_matching_beer(texts)
     find_best_matching_beer_with_score(texts)[0]
@@ -34,21 +42,28 @@ class Beer < ApplicationRecord
   end
 
   def compute_score_of_text(text)
-    return 0 if (self.keywords.nil? || text.size < 3 || LOW_SCORE_STRINGS.include?(text.downcase))
+    return 0 if (self.keywords.nil? || text.size < 3)
 
     text = text.downcase
     keywords = self.keywords.split.map(&:downcase)
-    keywords = keywords - LOW_SCORE_STRINGS
+
+    multiplicator = LOW_SCORE_STRINGS.include?(text.downcase) ? 0.5 : 1
+
+    # TROP LENT MAIS ON GARDE
+    # keywords.each do |keyword|
+    #   distance = LevenshteinsController.distance(text, keyword)
+    #   if distance < 2
+    #     return ([keyword.length, text.length].min * 2).fdiv([keyword.length, text.length].max)
+
+    #   end
+    # end
 
     keywords.each do |keyword|
-      distance = LevenshteinsController.distance(text, keyword)
-      if distance < 2
-        return ([keyword.length, text.length].min * 2).fdiv([keyword.length, text.length].max)
+      if keyword.include?(text) || text.include?(keyword)
+        return multiplicator * ([keyword.length, text.length].min * 2).fdiv([keyword.length, text.length].max)
 
       end
     end
-
     return 0
-
   end
 end

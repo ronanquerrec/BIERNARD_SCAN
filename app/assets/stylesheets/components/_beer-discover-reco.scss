@@ -10,10 +10,12 @@
   color: $blue;
   font-size: 22px;
   padding: 0 0 10px 5px;
+  text-overflow: ellipsis;
   span {
     background-color: $yellow;
     padding: 2px 4px;
     margin-bottom: 10px;
+    border-radius: 10px;
   }
 }
 
@@ -26,6 +28,14 @@
   margin: 0 5px 20px 5px;
   padding: 20px 0px;
   min-width: 85vw;
+  a {
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 .discover-info {
@@ -47,11 +57,12 @@
 .tags-container {
   display: flex;
   flex-direction: column;
+  padding-right: 10px;
   h4 {
     color: $yellow;
     font-size: 1em;
     text-align: right;
-    padding-right: 2em;
+    padding-right: 1em;
   }
 }
 
@@ -74,6 +85,8 @@
   align-items: center;
   justify-content: flex-end;
   padding: 1em 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   ul {
     list-style: none;
     padding-left: 0px;
@@ -85,11 +98,11 @@
     margin: 2em 0px;
   }
   li > span {
-    border: solid 1px $gray;
+    border: solid 1px #495057;
     border-top-right-radius: 80px 80px;
     border-bottom-right-radius: 80px 80px;
     padding: 10px 30px 10px 10px;
-    color: $gray;
+    color: #495057;
     text-align: right;
     border-left: 0px;
   }

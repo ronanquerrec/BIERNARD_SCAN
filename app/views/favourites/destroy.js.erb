@@ -10,6 +10,11 @@ function destroyNotif() {
   notifDiv.classList.remove('d-none');
 };
 
+function removeHeartTabClass() {
+  const heartTabElement = document.querySelector('.bottom-nav .fa-heart');
+  heartTabElement.classList.remove('animated', 'wobble');
+};
 
 toggleHeart();
+removeHeartTabClass();
 // destroyNotif();

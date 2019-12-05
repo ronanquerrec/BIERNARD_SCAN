@@ -21,12 +21,11 @@
 
 .recommendation-row {
   display: flex;
-  border-top-style: solid;
-  border-width: thin;
-  border-color: lightgrey;
   overflow-x: scroll;
-  overflow-y: hidden;
   &::-webkit-scrollbar { width: 0 !important };
+  margin-right: -15px;
+  margin-left: -15px;
+  padding-left: 15px;
 }
 
 .recommendation-row .full {
@@ -91,4 +90,8 @@
 .link_to {
   text-decoration: none;
   display: none;
+}
+
+a[href*="10981"] img{
+object-fit:cover;
 }
