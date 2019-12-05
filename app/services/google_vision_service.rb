@@ -56,8 +56,8 @@ class GoogleVisionService
     end
   end
 
-  def self.test_pourcentage_matching
-    beers = Beer.all.sample(10)
+  def self.test_pourcentage_matching(sample_size)
+    beers = Beer.all.sample(sample_size)
     beers.map do |beer|
       matched_beer = Beer.find_best_matching_beer_with_score(beer.keywords.split)
       matched_beer_name = matched_beer[0].name unless matched_beer[0].nil?
