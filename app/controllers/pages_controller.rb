@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def autocomplete
     query = params[:query]
-    @beers = Beer.where("name ILIKE ?", "%#{query}%")
+    @beers = Beer.where("name ILIKE ?", "%#{query}%").first(10)
     render json: @beers
   end
 

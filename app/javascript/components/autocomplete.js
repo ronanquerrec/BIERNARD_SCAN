@@ -5,12 +5,10 @@ const autocomplete = () => {
       const query = event.currentTarget.value
       fetch(`/pages/autocomplete?query=${query}`, {
         method: "GET",
-        // body: JSON.stringify({ query: event.currentTarget.value })
       })
       .then(response => response.json())
       .then((data) => {
         const searchResult = document.querySelector('.search-result');
-        console.log(data);
         searchResult.innerHTML = ''
         data.forEach((beer) => {
           searchResult.insertAdjacentHTML('beforeend', `<li class="suggestion" data-name="${beer['name']}">${beer['name']}</li>`)
