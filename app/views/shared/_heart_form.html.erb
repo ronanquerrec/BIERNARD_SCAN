@@ -2,14 +2,14 @@
   <%= simple_form_for @favourite, method: :delete, remote: true do |f| %>
     <%= f.input :beer_id, input_html: {value: beer.id}, as: :hidden %>
     <%= button_tag(type: 'submit') do %>
-      <i class="fas fa-heart"></i>
+      <i class="fas fa-heart sign_in_required"></i>
     <% end %>
   <% end %>
 <% else %>
   <%= simple_form_for @favourite, method: :post, remote: true do |f| %>
     <%= f.input :beer_id, input_html: {value: beer.id}, as: :hidden %>
     <%= button_tag(type: 'submit') do %>
-      <i class="far fa-heart"></i>
+      <i class="far fa-heart sign_in_required"></i>
     <% end %>
   <% end %>
 <% end %>
