@@ -1,9 +1,17 @@
-<div class="row col-12">
+<!-- <div class="row col-12">
   <h2 class="discover-reco-title">Découvrir</h2>
   <p class="discover-reco-description">Mes suggestions se basent sur les saveurs des bières dans ta cave</p>
 </div>
-
-
+ -->
+<div class="biernard-bubble">
+  <%= link_to root_path do %>
+    <%= image_tag "https://media.biernard.com/iw/br/_next/static/images/biernard-bierologue-digital-350-b0900e88fe20250cdceebcaf9b0a202e.png", alt: "Biernard - Biérologue Digital" %>
+  <% end %>
+  <div class="speech-bubble">
+    <p>Mes <strong>suggestions</strong> se basent sur les saveurs des bières de ta cave.</p>
+  </div>
+</div>
+<hr align="center" width="50%">
 <% if @first_tag.present? %>
   <h5 class="discover-row-title">T'es branché <span><%= @first_tag %></span> non ?</h5>
   <div class="discover-row-reco">
