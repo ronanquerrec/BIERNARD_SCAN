@@ -1,6 +1,8 @@
 function toggleHeart() {
   const simpleForm = document.querySelector('.simple_form')
   simpleForm.outerHTML = '<%= j render "shared/heart_form", beer: @beer %>';
+  const heartElement = document.querySelector('.edit_favourite .fa-heart');
+  heartElement.classList.add('animated', 'zoomIn', 'faster');
 };
 
 function displayNotif() {
@@ -12,7 +14,6 @@ function displayNotif() {
 
 function blinkHeartTab() {
   const heartTabElement = document.querySelector('.bottom-nav .fa-heart');
-  console.log(heartTabElement);
   heartTabElement.classList.add('animated', 'wobble');
 };
 
