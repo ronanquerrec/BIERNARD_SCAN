@@ -12,7 +12,7 @@ class ScansController < ApplicationController
     google_vision = GoogleVisionService.new(uploaded_url)
     @scan_results = google_vision.texts_from_image
     beer = Beer.find_best_matching_beer_with_score(@scan_results)
-    if beer[1] < 6
+    if beer[1] < 5
       redirect_to no_match_path
     else
       redirect_to beer_path(beer[0])
