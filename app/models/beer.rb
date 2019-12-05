@@ -96,6 +96,9 @@ class Beer < ApplicationRecord
   def insert_keywords
     return if url_image.nil?
 
-    self.keywords = GoogleVisionService.new(url_image).texts_from_image
+    texts = GoogleVisionService.new(url_image).texts_from_image
+    texts = texts[1..-1] if texts.size.positive?
+    self.keywords = texts.join(" ")
+    self.save!
   end
 end
