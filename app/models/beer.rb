@@ -1,4 +1,7 @@
 class Beer < ApplicationRecord
+  after_create :insert_keywords
+  after_update :insert_keywords
+
   has_many :beer_flavours, dependent: :destroy
   has_many :favourites, dependent: :destroy
   has_many :flavours, through: :beer_flavours
@@ -58,5 +61,11 @@ class Beer < ApplicationRecord
       end
     end
     return 0
+  end
+
+  def insert_keywords
+    return if url_image.nil?
+
+    self.keywords = GoogleVisionService.new(url_image).texts_from_image
   end
 end
