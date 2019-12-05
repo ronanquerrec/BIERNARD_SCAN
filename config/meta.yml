@@ -1,0 +1,5 @@
+meta_product_name: "Biernard"
+meta_title: "Biernard - Votre bierologue digital"
+meta_description: "Scannez vos bières, créez votre cave et découvrez de nouveaux goûts grâce à Biernard, votre bierologue digital!"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@https://twitter.com/Biernard_"   # required for Twitter Cards
