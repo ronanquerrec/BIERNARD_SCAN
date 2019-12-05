@@ -1,20 +1,28 @@
+<div class="biernard-bubble">
+  <%= link_to root_path do %>
+    <%= image_tag "https://media.biernard.com/iw/br/_next/static/images/biernard-bierologue-digital-350-b0900e88fe20250cdceebcaf9b0a202e.png", alt: "Biernard - Biérologue Digital" %>
+  <% end %>
+  <div class="speech-bubble">
+    <p>Bienvenue dans <strong>ta cave</strong> ! Retrouve ici toutes tes bières préférées.</p>
+  </div>
+</div>
+<hr align="center" width="50%">
 <div class="container pb-5">
-  <h2 class="reco-title pb-2">Ma cave</h2>
-    <% if @beers.present? %>
-      <div class="beer-grid">
-        <% @beers.each do |beer| %>
-          <div class="beer-card">
-            <%= link_to beer_path(beer) do %>
-              <%= image_tag beer.url_image %>
-              <div class="recommendation-card-info">
-                <h5><%= beer.name %></h5>
-                <p><%= beer.brewery %></p>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% else %>
-      <p>Scanne une bière et like la pour l'ajouter à ta cave.</p>
-    <% end %>
+  <% if @beers.present? %>
+    <div class="beer-grid">
+      <% @beers.each do |beer| %>
+        <div class="beer-card">
+          <%= link_to beer_path(beer) do %>
+            <%= image_tag beer.url_image %>
+            <div class="recommendation-card-info">
+              <h5><%= beer.name %></h5>
+              <p><%= beer.brewery %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+  <% else %>
+    <p>Scanne une bière et like la pour l'ajouter à ta cave.</p>
+  <% end %>
+</div>
