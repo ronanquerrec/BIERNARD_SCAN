@@ -1,13 +1,3 @@
-i.fa-heart {
-  color: $blue;
-  opacity: 0.4;
-
-  &.fas {
-    color: $yellow;
-    opacity: 1;
-  }
-}
-
 .simple_form.new_favourite,
 .simple_form.edit_favourite {
   div {
@@ -20,5 +10,14 @@ i.fa-heart {
   }
   button:focus {
     outline: none;
+  }
+  i.fa-heart {
+    color: $blue;
+    opacity: 0.4;
+
+    &.fas {
+      color: $yellow;
+      opacity: 1;
+    }
   }
 }
