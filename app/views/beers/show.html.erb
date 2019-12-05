@@ -1,3 +1,8 @@
+<% content_for :meta_title, "#{@beer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @beer.description %>
+<% content_for :meta_image, cl_image_path(@beer.url_image) %>
+
+
 <div class="top-navbar">
   <%= link_to url_for(:back) do %>
     <i class="fas fa-arrow-left"></i>

@@ -15,7 +15,6 @@
     height: 92px;
   }
 }
-/** Simple speech bubble */
 .speech-bubble {
     background: rgba(206, 213, 227, 0.5);
     -webkit-border-radius: 10px;
@@ -31,9 +30,11 @@
       font-size: 16px;
     }
 }
+
 .speech-bubble p:last-of-type {
     margin-bottom: 0;
 }
+
 .speech-bubble::after {
     border-left: 15px solid transparent;
     border-bottom: 20px solid rgba(206, 213, 227, 0.5);
@@ -42,6 +43,7 @@
     position: absolute;
     left: -15px;
 }
+
 hr {
   margin-top: 0;
 }
