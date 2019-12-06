@@ -3,7 +3,7 @@ class FavouritesController < ApplicationController
 
   def index
     @page_title = "favourites_index"
-    @beers = current_user.beers.reverse
+    @beers = current_user.favourites.order(:updated_at).reverse.map(&:beer)
   end
 
   def create
