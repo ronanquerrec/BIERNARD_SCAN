@@ -19,6 +19,16 @@
   padding: 15px;
 }
 
+@media(max-width: 350px) {
+  .beer-card {
+    width: 140px;
+  }
+  .beer-card img {
+    width: 130px;
+    height: unset;
+  }
+}
+
 .beer-card h5,
 .beer-card p {
   padding-left: 8px;

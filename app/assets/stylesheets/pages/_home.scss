@@ -1,9 +1,6 @@
 .body-home {
   background: $yellow;
   background: linear-gradient(0deg, $yellow 51.56%, #F7CB59 100%);
-  img {
-    width: 240px;
-  }
 }
 
 @keyframes shadow-pulse
@@ -38,6 +35,25 @@
     color: white;
     font-size: 88px;
   }
+}
+
+.logo-home {
+  width: 240px;
+}
+
+@media (max-width: 350px) {
+  .logo-home {
+    width: 150px;
+  }
+
+  .awesome-button {
+    width: 200px;
+    height:200px;
+    i {
+      font-size: 68px;
+    }
+  }
+
 }
 
 .wrapper-button {
