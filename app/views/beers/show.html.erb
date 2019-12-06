@@ -14,11 +14,11 @@
   <div class="beer-cover col-4 d-flex justify-content-center align-items-center" style="background-image: url(<%= @beer.url_image %>);"></div>
   <div class="beer-main-infos col-8">
     <h1><%= @beer.name %></h1>
-    <p><strong>Brasserie:</strong> <span class="desc-light"><%= @beer.brewery %></span></p>
-    <p><strong>Style:</strong> <span class="desc-light"><%= @beer.style %></span></p>
-    <p><strong>Pays:</strong> <span class="desc-light"><%= @beer.country %></span></p>
-    <p><strong>Alcool:</strong> <span class="desc-light"><%= @beer.alcohol_percentage %>°</span></p>
-    <p><strong>Couleur:</strong> <span class="desc-light"><%= @beer.colour %></span></p>
+    <p><strong>Brasserie :</strong> <span class="desc-light"><%= @beer.brewery %></span></p>
+    <p><strong>Style :</strong> <span class="desc-light"><%= @beer.style %></span></p>
+    <p><strong>Pays :</strong> <span class="desc-light"><%= @beer.country %></span></p>
+    <p><strong>Alcool :</strong> <span class="desc-light"><%= @beer.alcohol_percentage %>°</span></p>
+    <p><strong>Couleur :</strong> <span class="desc-light"><%= @beer.colour %></span></p>
   </div>
   <div class="filet"></div>
 </div>
@@ -62,7 +62,7 @@
       <div class="filling" style="width:<%= @beer.sourness.fdiv(10).ceil * 10 %>%"></div>
     </div>
   </div>
-  <h3 class="pt-2 mt-2">Vous aimerez aussi ...</h3>
+  <h3 class="pt-2 mt-2">Tu aimeras aussi...</h3>
   <div class="recommendation-row pb-4">
     <% @show_reco.each do |beer| %>
       <div class="recommendation-card">

@@ -1,12 +1,15 @@
 class RecommendationsController < ApplicationController
   def index
     @page_title = "recommendations_index"
-    @first_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[0]).first(10)
+    @first_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[0])
+    @first_reco_beers = (@first_reco_beers - current_user.beers).first(10)
     @second_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[1])
-    @second_reco_beers = remove_duplicate(@second_reco_beers, @first_reco_beers).first(10)
+    @second_reco_beers = remove_duplicate(@second_reco_beers, @first_reco_beers)
+    @second_reco_beers = (@second_reco_beers - current_user.beers).first(10)
     @third_reco_beers = Beer.joins(:flavours).where("flavours.name = ?", favourite_beer_tags[2])
     @concatenated_array = @first_reco_beers + @second_reco_beers
-    @third_reco_beers = remove_duplicate(@third_reco_beers, @concatenated_array).first(10)
+    @third_reco_beers = remove_duplicate(@third_reco_beers, @concatenated_array)
+    @third_reco_beers = (@third_reco_beers - current_user.beers).first(10)
     @first_tag = favourite_beer_tags[0]
     @second_tag = favourite_beer_tags[1]
     @third_tag = favourite_beer_tags[2]
