@@ -1,0 +1,25 @@
+<div class="biernard-bubble">
+  <%= link_to root_path do %>
+    <%= image_tag "https://media.biernard.com/iw/br/_next/static/images/biernard-bierologue-digital-350-b0900e88fe20250cdceebcaf9b0a202e.png", alt: "Biernard - Biérologue Digital" %>
+  <% end %>
+  <div class="speech-bubble">
+    <p><strong>Fichtre !</strong> Je ne trouve pas ta bière, tu peux saisir son nom :</p>
+  </div>
+</div>
+<hr align="center" width="50%">
+<!-- <h1 class="reco-title">Fichtre !</h1>
+<p class="reco-description">Je ne trouve pas ta bière, tu peux saisir son nom :</p> -->
+<div class="wrong_beer_search">
+  <%= form_tag beer_path("no_match"), method: :get do %>
+  <%= text_field_tag :query,
+      params[:query],
+      class: "form-control autocomplete",
+      placeholder: "Cherche ta bière..."
+    %>
+    <ul class="search-result">
+
+    </ul>
+    <%= submit_tag "Chercher", class: "search-btn" %>
+  <% end %>
+</div>
+

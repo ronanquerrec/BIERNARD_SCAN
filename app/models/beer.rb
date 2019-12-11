@@ -6,6 +6,13 @@ class Beer < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :flavours, through: :beer_flavours
 
+  # include PgSearch::Beer
+  # pg_search_scope :search_by_name,
+  # against: [:name],
+  # using: {
+  #   tsearch: { prefix: true }
+  # }
+
   LOW_SCORE_STRINGS = %w[de ale brewing ipa the pale la a blonde beer e d biere black vol tripel n alc aged in and]
 
   def self.destroy_beers_without_images

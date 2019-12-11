@@ -1,7 +1,16 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :no_match, :autocomplete]
 
   def home
+  end
+
+  def no_match
+  end
+
+  def autocomplete
+    query = params[:query]
+    @beers = Beer.where("name ILIKE ?", "%#{query}%").first(10)
+    render json: @beers
   end
 
   def test_matching
