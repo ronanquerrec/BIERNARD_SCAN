@@ -79,3 +79,9 @@
     }
   }
 }
+
+@media(max-width: 350px) {
+  .beer-details .bar-rating-container {
+    width: 140px;
+  }
+}

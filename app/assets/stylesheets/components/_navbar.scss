@@ -64,4 +64,13 @@
   }
 }
 
-
+@media(max-width: 350px) {
+  .bottom-nav a.item {
+    li {
+      font-size: 16px;
+    }
+    i {
+      font-size: 24px;
+    }
+  }
+}

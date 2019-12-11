@@ -49,6 +49,13 @@
  }
 }
 
+@media(max-width: 350px) {
+  .discover-info img {
+    padding-top: 30px;
+    height: 194px;
+  }
+}
+
 .beer-bottle {
   background-size: cover;
 }
